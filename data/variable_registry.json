@@ -1,0 +1,412 @@
+{
+  "version": 1,
+  "updated_at": "2026-04-12",
+  "constructs": [
+    {
+      "name": "escalation",
+      "description": "Rising probability of coercion, conflict expansion, military action, or hostile bargaining.",
+      "cadence": "hourly_ingestion_daily_aggregation",
+      "columns": [
+        {
+          "name": "cameo_conflict_count_1d",
+          "type": "count",
+          "unit": "events",
+          "models": ["bayesian", "hazard", "regime", "tree"],
+          "definition": "One-day count of conflict or coercive event codes."
+        },
+        {
+          "name": "cameo_conflict_count_7d",
+          "type": "count",
+          "unit": "events",
+          "models": ["bayesian", "hazard", "regime", "tree"],
+          "definition": "Seven-day rolling count of conflict or coercive event codes."
+        },
+        {
+          "name": "goldstein_conflict_sum_7d",
+          "type": "continuous",
+          "unit": "weighted_score",
+          "models": ["bayesian", "hazard", "regime", "tree"],
+          "definition": "Seven-day sum of negative Goldstein-weighted event values."
+        },
+        {
+          "name": "battle_event_count_7d",
+          "type": "count",
+          "unit": "events",
+          "models": ["bayesian", "hazard", "regime", "tree"],
+          "definition": "Seven-day count of violent battle or strike events."
+        },
+        {
+          "name": "fatality_count_7d",
+          "type": "count",
+          "unit": "fatalities",
+          "models": ["bayesian", "hazard", "regime", "tree"],
+          "definition": "Reported fatalities aggregated over the last seven days."
+        },
+        {
+          "name": "cross_border_strike_indicator_7d",
+          "type": "binary",
+          "unit": "flag",
+          "models": ["bayesian", "hazard", "regime", "tree"],
+          "definition": "Indicator for reported cross-border strike activity in the past week."
+        },
+        {
+          "name": "shock_event_count_3d",
+          "type": "count",
+          "unit": "events",
+          "models": ["bayesian", "hazard", "regime", "tree"],
+          "definition": "Count of high-salience events over the last three days."
+        }
+      ],
+      "failure_modes": [
+        "wire duplication",
+        "underreporting",
+        "media amplification around single incidents"
+      ]
+    },
+    {
+      "name": "de_escalation",
+      "description": "Rising probability of talks, cooling rhetoric, ceasefire movement, or lower operational tempo.",
+      "cadence": "hourly_ingestion_daily_aggregation",
+      "columns": [
+        {
+          "name": "cameo_cooperation_count_1d",
+          "type": "count",
+          "unit": "events",
+          "models": ["bayesian", "hazard", "regime", "tree"],
+          "definition": "One-day count of cooperative event codes."
+        },
+        {
+          "name": "cameo_cooperation_count_7d",
+          "type": "count",
+          "unit": "events",
+          "models": ["bayesian", "hazard", "regime", "tree"],
+          "definition": "Seven-day rolling count of cooperative event codes."
+        },
+        {
+          "name": "goldstein_cooperation_sum_7d",
+          "type": "continuous",
+          "unit": "weighted_score",
+          "models": ["bayesian", "hazard", "regime", "tree"],
+          "definition": "Seven-day sum of positive Goldstein-weighted event values."
+        },
+        {
+          "name": "official_meeting_count_7d",
+          "type": "count",
+          "unit": "meetings",
+          "models": ["bayesian", "hazard", "tree"],
+          "definition": "Count of verified official meetings, calls, or summits over seven days."
+        },
+        {
+          "name": "ceasefire_reference_count_7d",
+          "type": "count",
+          "unit": "references",
+          "models": ["bayesian", "hazard", "tree"],
+          "definition": "Count of ceasefire or truce references over seven days."
+        },
+        {
+          "name": "diplomatic_progress_score_7d",
+          "type": "continuous",
+          "unit": "score",
+          "models": ["bayesian", "hazard", "tree"],
+          "definition": "Weighted score for negotiation-positive official language."
+        },
+        {
+          "name": "violence_decline_ratio_7d",
+          "type": "continuous",
+          "unit": "ratio",
+          "models": ["bayesian", "hazard", "regime", "tree"],
+          "definition": "Decline in violent events versus trailing baseline."
+        }
+      ],
+      "failure_modes": [
+        "performative diplomacy",
+        "old news recirculation",
+        "one-sided statements misread as mutual progress"
+      ]
+    },
+    {
+      "name": "negotiation",
+      "description": "Actual bargaining activity, not vague rhetoric.",
+      "cadence": "daily",
+      "columns": [
+        {
+          "name": "official_talks_count_7d",
+          "type": "count",
+          "unit": "talks",
+          "models": ["bayesian", "hazard", "tree"],
+          "definition": "Count of official negotiation events over seven days."
+        },
+        {
+          "name": "backchannel_reference_count_7d",
+          "type": "count",
+          "unit": "references",
+          "models": ["bayesian", "hazard", "tree"],
+          "definition": "Count of credible backchannel reports over seven days."
+        },
+        {
+          "name": "mediator_activity_count_7d",
+          "type": "count",
+          "unit": "events",
+          "models": ["bayesian", "hazard", "tree"],
+          "definition": "Count of mediator or intermediary activity reports over seven days."
+        },
+        {
+          "name": "agreement_draft_indicator_7d",
+          "type": "binary",
+          "unit": "flag",
+          "models": ["bayesian", "hazard", "tree"],
+          "definition": "Indicator for draft agreement or framework circulation."
+        },
+        {
+          "name": "joint_statement_indicator_7d",
+          "type": "binary",
+          "unit": "flag",
+          "models": ["bayesian", "hazard", "tree"],
+          "definition": "Indicator for joint or coordinated official statement."
+        },
+        {
+          "name": "negotiation_cadence_gap_days",
+          "type": "continuous",
+          "unit": "days",
+          "models": ["hazard", "tree"],
+          "definition": "Days since last confirmed negotiation event."
+        }
+      ],
+      "failure_modes": [
+        "anonymous sourcing",
+        "rumor recycling",
+        "false equivalence between contact and formal negotiation"
+      ]
+    },
+    {
+      "name": "military_pressure",
+      "description": "Observable evidence of force positioning or coercive signaling.",
+      "cadence": "hourly_ingestion_daily_aggregation",
+      "columns": [
+        {
+          "name": "air_sortie_signal_3d",
+          "type": "count",
+          "unit": "references",
+          "models": ["bayesian", "hazard", "regime", "tree"],
+          "definition": "Proxy count of unusual military aviation references over three days."
+        },
+        {
+          "name": "force_movement_count_7d",
+          "type": "count",
+          "unit": "movements",
+          "models": ["bayesian", "hazard", "regime", "tree"],
+          "definition": "Count of reported troop, naval, or air asset movements."
+        },
+        {
+          "name": "weapons_deployment_indicator_7d",
+          "type": "binary",
+          "unit": "flag",
+          "models": ["bayesian", "hazard", "regime", "tree"],
+          "definition": "Indicator for notable deployment reports over seven days."
+        },
+        {
+          "name": "missile_reference_count_7d",
+          "type": "count",
+          "unit": "references",
+          "models": ["bayesian", "hazard", "regime", "tree"],
+          "definition": "Count of missile, air defense, or long-range strike mentions."
+        },
+        {
+          "name": "mobilization_reference_count_7d",
+          "type": "count",
+          "unit": "references",
+          "models": ["bayesian", "hazard", "regime", "tree"],
+          "definition": "Count of mobilization or readiness references."
+        },
+        {
+          "name": "pentagon_alert_score_3d",
+          "type": "continuous",
+          "unit": "score",
+          "models": ["bayesian", "hazard", "regime", "tree"],
+          "definition": "Weighted score for official readiness or force posture language."
+        }
+      ],
+      "failure_modes": [
+        "exercise noise",
+        "open-source chatter false positives",
+        "theater-specific visibility gaps"
+      ]
+    },
+    {
+      "name": "regime_fragility",
+      "description": "Underlying vulnerability of the political system to instability or elite fracture.",
+      "cadence": "weekly_or_monthly",
+      "columns": [
+        {
+          "name": "vdem_regime_score",
+          "type": "continuous",
+          "unit": "index",
+          "models": ["bayesian", "regime", "tree"],
+          "definition": "Institutional regime quality measure."
+        },
+        {
+          "name": "elite_fragmentation_score",
+          "type": "continuous",
+          "unit": "score",
+          "models": ["bayesian", "regime", "tree"],
+          "definition": "Proxy score for elite division, turnover, or faction conflict."
+        },
+        {
+          "name": "protest_event_count_30d",
+          "type": "count",
+          "unit": "events",
+          "models": ["bayesian", "regime", "tree"],
+          "definition": "Count of protest events in the last 30 days."
+        },
+        {
+          "name": "repression_event_count_30d",
+          "type": "count",
+          "unit": "events",
+          "models": ["bayesian", "regime", "tree"],
+          "definition": "Count of repression or crackdown events in the last 30 days."
+        },
+        {
+          "name": "inflation_stress_score",
+          "type": "continuous",
+          "unit": "score",
+          "models": ["bayesian", "regime", "tree"],
+          "definition": "Inflation or price instability proxy."
+        },
+        {
+          "name": "gdp_growth_proxy",
+          "type": "continuous",
+          "unit": "growth_rate",
+          "models": ["bayesian", "regime", "tree"],
+          "definition": "Growth deterioration proxy."
+        },
+        {
+          "name": "instability_history_count_365d",
+          "type": "count",
+          "unit": "events",
+          "models": ["bayesian", "regime", "tree"],
+          "definition": "Count of prior-year instability events."
+        }
+      ],
+      "failure_modes": [
+        "lagging structural data",
+        "cross-country comparability issues",
+        "proxy drift over time"
+      ]
+    },
+    {
+      "name": "deadline_pressure",
+      "description": "Time pressure from contract expiry or relevant political calendars.",
+      "cadence": "daily_hourly_near_expiry",
+      "columns": [
+        {
+          "name": "days_to_deadline",
+          "type": "continuous",
+          "unit": "days",
+          "models": ["hazard", "tree"],
+          "definition": "Days remaining until contract expiry."
+        },
+        {
+          "name": "hours_to_deadline",
+          "type": "continuous",
+          "unit": "hours",
+          "models": ["hazard", "tree"],
+          "definition": "Hours remaining until contract expiry."
+        },
+        {
+          "name": "days_since_last_major_event",
+          "type": "continuous",
+          "unit": "days",
+          "models": ["hazard", "tree"],
+          "definition": "Recency gap since the last major catalyst."
+        },
+        {
+          "name": "scheduled_meeting_within_7d",
+          "type": "binary",
+          "unit": "flag",
+          "models": ["hazard", "tree"],
+          "definition": "Indicator for an upcoming relevant official meeting."
+        },
+        {
+          "name": "decision_window_indicator",
+          "type": "binary",
+          "unit": "flag",
+          "models": ["hazard", "tree"],
+          "definition": "Indicator for a known political, legal, or military timing window."
+        },
+        {
+          "name": "calendar_congestion_score",
+          "type": "count",
+          "unit": "events",
+          "models": ["hazard", "tree"],
+          "definition": "Count of relevant deadlines or catalysts clustered in the next seven days."
+        }
+      ],
+      "failure_modes": [
+        "countdown theater",
+        "irrelevant deadlines",
+        "missing hidden operational timing"
+      ]
+    },
+    {
+      "name": "market_stress",
+      "description": "Information from price dynamics, volatility, flow, and liquidity strain.",
+      "cadence": "hourly_or_faster",
+      "columns": [
+        {
+          "name": "market_prob",
+          "type": "continuous",
+          "unit": "probability",
+          "models": ["bayesian", "hazard", "regime", "tree", "decision"],
+          "definition": "Latest market-implied probability."
+        },
+        {
+          "name": "market_momentum_1d",
+          "type": "continuous",
+          "unit": "probability_change",
+          "models": ["bayesian", "hazard", "regime", "tree"],
+          "definition": "One-day market-implied probability change."
+        },
+        {
+          "name": "market_momentum_7d",
+          "type": "continuous",
+          "unit": "probability_change",
+          "models": ["bayesian", "hazard", "tree"],
+          "definition": "Seven-day market-implied probability change."
+        },
+        {
+          "name": "market_volatility_7d",
+          "type": "continuous",
+          "unit": "volatility",
+          "models": ["bayesian", "hazard", "regime", "tree"],
+          "definition": "Volatility of recent price changes."
+        },
+        {
+          "name": "order_flow_imbalance_1d",
+          "type": "continuous",
+          "unit": "ratio",
+          "models": ["bayesian", "hazard", "tree", "decision"],
+          "definition": "Yes-minus-no order flow imbalance."
+        },
+        {
+          "name": "liquidity_depth_score",
+          "type": "continuous",
+          "unit": "score",
+          "models": ["bayesian", "tree", "decision"],
+          "definition": "Ease-of-execution liquidity proxy."
+        },
+        {
+          "name": "spread_proxy",
+          "type": "continuous",
+          "unit": "cost",
+          "models": ["tree", "decision"],
+          "definition": "Estimated spread or slippage proxy."
+        }
+      ],
+      "failure_modes": [
+        "thin market distortions",
+        "large trader impact",
+        "missing direct microstructure data"
+      ]
+    }
+  ]
+}

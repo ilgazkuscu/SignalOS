@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --font-body: "IBM Plex Sans", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --font-condensed: "IBM Plex Sans Condensed", sans-serif;
+  --color-bg: #08111c;
+  --color-panel: rgba(13, 20, 34, 0.9);
+  --color-surface-muted: rgba(45, 212, 191, 0.08);
+  --color-border: rgba(148, 163, 184, 0.22);
+  --color-text: #e2e8f0;
+  --color-text-muted: #93a4b8;
+  --color-accent: #2dd4bf;
+  --color-accent-soft: rgba(45, 212, 191, 0.15);
+  --color-warning-bg: rgba(245, 158, 11, 0.13);
+  --color-warning-text: #fbbf24;
+  --color-danger-bg: rgba(239, 68, 68, 0.12);
+  --color-danger-border: rgba(239, 68, 68, 0.35);
+  --color-danger-text: #fca5a5;
+  --color-positive-bg: rgba(45, 212, 191, 0.12);
+  --color-positive-text: #99f6e4;
+  --color-grid: rgba(148, 163, 184, 0.12);
+  --color-chart-market: #f59e0b;
+  --color-chart-model: #2dd4bf;
+  --color-chart-negative: #ef4444;
+  --color-chart-neutral: #94a3b8;
+  --radius-panel: 8px;
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+  --color-bg: #f4f7fb;
+  --color-panel: rgba(255, 255, 255, 0.93);
+  --color-surface-muted: rgba(15, 118, 110, 0.08);
+  --color-border: rgba(15, 23, 42, 0.12);
+  --color-text: #0f172a;
+  --color-text-muted: #526175;
+  --color-accent: #0f766e;
+  --color-accent-soft: rgba(15, 118, 110, 0.12);
+  --color-warning-bg: rgba(245, 158, 11, 0.14);
+  --color-warning-text: #92400e;
+  --color-danger-bg: rgba(239, 68, 68, 0.1);
+  --color-danger-border: rgba(239, 68, 68, 0.28);
+  --color-danger-text: #b91c1c;
+  --color-positive-bg: rgba(16, 185, 129, 0.12);
+  --color-positive-text: #065f46;
+  --color-grid: rgba(15, 23, 42, 0.08);
+  --color-chart-market: #d97706;
+  --color-chart-model: #0f766e;
+  --color-chart-negative: #dc2626;
+  --color-chart-neutral: #64748b;
+}
+
+a {
+  @apply text-inherit no-underline;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background:
+    radial-gradient(circle at top left, rgba(45, 212, 191, 0.1), transparent 30%),
+    radial-gradient(circle at top right, rgba(245, 158, 11, 0.08), transparent 22%),
+    var(--color-bg);
+  color: var(--color-text);
+}
+
+* {
+  border-color: var(--color-border);
+}
+
+.font-condensed {
+  font-family: var(--font-condensed);
+}
+
+.rounded-panel {
+  border-radius: var(--radius-panel);
+}
+
+.font-mono,
+code,
+pre {
+  font-family: var(--font-mono);
+}
+
+input[type="range"] {
+  accent-color: var(--color-accent);
+}
+
+.recharts-wrapper,
+.recharts-surface {
+  overflow: visible;
+}
+
+.recharts-cartesian-axis-tick text,
+.recharts-label,
+.recharts-legend-item-text {
+  fill: var(--color-text-muted) !important;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+}
+
+.recharts-tooltip-wrapper {
+  outline: none;
+}
+
+.recharts-default-tooltip {
+  border-color: var(--color-border) !important;
+  background: var(--color-panel) !important;
+  color: var(--color-text) !important;
+}

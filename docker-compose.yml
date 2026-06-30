@@ -1,0 +1,29 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file: .env
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+  scheduler:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file: .env
+    command: python scripts/run_ingest.py --loop
+    volumes:
+      - ./data:/app/data
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+  duckdb:
+    image: alpine:3.20
+    command: ["sh", "-c", "mkdir -p /data && tail -f /dev/null"]
+    volumes:
+      - ./data:/data

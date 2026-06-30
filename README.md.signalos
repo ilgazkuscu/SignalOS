@@ -1,0 +1,20 @@
+# SignalOS Iran Phase Detector
+
+This workspace now contains a self-contained `signalos/` Python service plus a `frontend/` Vite dashboard implementing the Iran phase detector stack.
+
+Core commands:
+
+- `pip install -r requirements.txt`
+- `python scripts/run_train.py`
+- `python scripts/run_ingest.py --once`
+- `python scripts/run_api.py`
+- `cd frontend && npm install && npm run dev`
+
+API routes:
+
+- `GET /current_phase/`
+- `GET /current_phase/signals`
+- `GET /edge/markets`
+- `GET /edge/{token_id}`
+- `GET /backtest/loo`
+- `GET /backtest/midnight_hammer`

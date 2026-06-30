@@ -1,0 +1,302 @@
+{
+  "bayesian_samples": [
+    {
+      "contract_id": "iran_apr21",
+      "market_prob": 0.34,
+      "features": {
+        "rolling_sentiment": 0.62,
+        "shock_intensity": 0.12,
+        "topic_concentration": 0.55,
+        "official_meeting_count_7d": 2.0,
+        "ceasefire_reference_count_7d": 1.0,
+        "cross_border_strike_indicator_7d": 0.0,
+        "force_movement_count_7d": 1.0,
+        "liquidity_depth_score": 0.78,
+        "elite_fragmentation_score": 0.24,
+        "momentum": 0.02,
+        "volatility": 0.03,
+        "order_flow_imbalance": 0.11,
+        "oil_stress": -0.01,
+        "rates_stress": -0.01,
+        "usd_strength": -0.01,
+        "macro_stress": 0.02
+      },
+      "outcome": 1
+    },
+    {
+      "contract_id": "iran_apr21",
+      "market_prob": 0.41,
+      "features": {
+        "rolling_sentiment": 0.58,
+        "shock_intensity": 0.18,
+        "topic_concentration": 0.48,
+        "official_meeting_count_7d": 1.0,
+        "ceasefire_reference_count_7d": 1.0,
+        "cross_border_strike_indicator_7d": 0.0,
+        "force_movement_count_7d": 1.0,
+        "liquidity_depth_score": 0.74,
+        "elite_fragmentation_score": 0.25,
+        "momentum": 0.01,
+        "volatility": 0.04,
+        "order_flow_imbalance": 0.05,
+        "oil_stress": 0.00,
+        "rates_stress": -0.01,
+        "usd_strength": 0.01,
+        "macro_stress": 0.01
+      },
+      "outcome": 1
+    },
+    {
+      "contract_id": "iran_apr30",
+      "market_prob": 0.46,
+      "features": {
+        "rolling_sentiment": 0.47,
+        "shock_intensity": 0.31,
+        "topic_concentration": 0.50,
+        "official_meeting_count_7d": 1.0,
+        "ceasefire_reference_count_7d": 0.0,
+        "cross_border_strike_indicator_7d": 1.0,
+        "force_movement_count_7d": 3.0,
+        "liquidity_depth_score": 0.59,
+        "elite_fragmentation_score": 0.33,
+        "momentum": -0.01,
+        "volatility": 0.05,
+        "order_flow_imbalance": -0.04,
+        "oil_stress": 0.02,
+        "rates_stress": 0.01,
+        "usd_strength": 0.01,
+        "macro_stress": 0.03
+      },
+      "outcome": 0
+    },
+    {
+      "contract_id": "iran_apr30",
+      "market_prob": 0.52,
+      "features": {
+        "rolling_sentiment": 0.42,
+        "shock_intensity": 0.44,
+        "topic_concentration": 0.60,
+        "official_meeting_count_7d": 0.0,
+        "ceasefire_reference_count_7d": 0.0,
+        "cross_border_strike_indicator_7d": 1.0,
+        "force_movement_count_7d": 4.0,
+        "liquidity_depth_score": 0.52,
+        "elite_fragmentation_score": 0.38,
+        "momentum": -0.02,
+        "volatility": 0.06,
+        "order_flow_imbalance": -0.08,
+        "oil_stress": 0.04,
+        "rates_stress": 0.02,
+        "usd_strength": 0.02,
+        "macro_stress": 0.04
+      },
+      "outcome": 0
+    },
+    {
+      "contract_id": "china_may31",
+      "market_prob": 0.29,
+      "features": {
+        "rolling_sentiment": 0.68,
+        "shock_intensity": 0.10,
+        "topic_concentration": 0.52,
+        "official_meeting_count_7d": 3.0,
+        "ceasefire_reference_count_7d": 1.0,
+        "cross_border_strike_indicator_7d": 0.0,
+        "force_movement_count_7d": 0.0,
+        "liquidity_depth_score": 0.82,
+        "elite_fragmentation_score": 0.21,
+        "momentum": 0.03,
+        "volatility": 0.02,
+        "order_flow_imbalance": 0.16,
+        "oil_stress": -0.02,
+        "rates_stress": -0.01,
+        "usd_strength": -0.01,
+        "macro_stress": 0.02
+      },
+      "outcome": 1
+    },
+    {
+      "contract_id": "china_may31",
+      "market_prob": 0.36,
+      "features": {
+        "rolling_sentiment": 0.64,
+        "shock_intensity": 0.14,
+        "topic_concentration": 0.46,
+        "official_meeting_count_7d": 2.0,
+        "ceasefire_reference_count_7d": 1.0,
+        "cross_border_strike_indicator_7d": 0.0,
+        "force_movement_count_7d": 1.0,
+        "liquidity_depth_score": 0.77,
+        "elite_fragmentation_score": 0.22,
+        "momentum": 0.02,
+        "volatility": 0.03,
+        "order_flow_imbalance": 0.10,
+        "oil_stress": -0.01,
+        "rates_stress": 0.00,
+        "usd_strength": 0.00,
+        "macro_stress": 0.01
+      },
+      "outcome": 1
+    },
+    {
+      "contract_id": "ceasefire_jun30",
+      "market_prob": 0.57,
+      "features": {
+        "rolling_sentiment": 0.45,
+        "shock_intensity": 0.40,
+        "topic_concentration": 0.58,
+        "official_meeting_count_7d": 0.0,
+        "ceasefire_reference_count_7d": 0.0,
+        "cross_border_strike_indicator_7d": 1.0,
+        "force_movement_count_7d": 4.0,
+        "liquidity_depth_score": 0.48,
+        "elite_fragmentation_score": 0.41,
+        "momentum": -0.03,
+        "volatility": 0.07,
+        "order_flow_imbalance": -0.10,
+        "oil_stress": 0.05,
+        "rates_stress": 0.02,
+        "usd_strength": 0.03,
+        "macro_stress": 0.05
+      },
+      "outcome": 0
+    },
+    {
+      "contract_id": "ceasefire_jun30",
+      "market_prob": 0.49,
+      "features": {
+        "rolling_sentiment": 0.54,
+        "shock_intensity": 0.21,
+        "topic_concentration": 0.49,
+        "official_meeting_count_7d": 2.0,
+        "ceasefire_reference_count_7d": 2.0,
+        "cross_border_strike_indicator_7d": 0.0,
+        "force_movement_count_7d": 1.0,
+        "liquidity_depth_score": 0.68,
+        "elite_fragmentation_score": 0.27,
+        "momentum": 0.01,
+        "volatility": 0.03,
+        "order_flow_imbalance": 0.03,
+        "oil_stress": 0.00,
+        "rates_stress": 0.00,
+        "usd_strength": 0.01,
+        "macro_stress": 0.01
+      },
+      "outcome": 1
+    }
+  ],
+  "hazard_samples": [
+    {
+      "days_to_deadline": 12,
+      "base_probability": 0.40,
+      "features": {
+        "rolling_sentiment": 0.44,
+        "shock_intensity": 0.36,
+        "official_meeting_count_7d": 0.0,
+        "cross_border_strike_indicator_7d": 1.0,
+        "momentum": -0.01,
+        "oil_stress": 0.04,
+        "days_since_last_major_event": 1.0,
+        "scheduled_meeting_within_7d": 0.0,
+        "decision_window_indicator": 0.0,
+        "calendar_congestion_score": 1.0
+      },
+      "event_today": 0
+    },
+    {
+      "days_to_deadline": 9,
+      "base_probability": 0.41,
+      "features": {
+        "rolling_sentiment": 0.46,
+        "shock_intensity": 0.28,
+        "official_meeting_count_7d": 1.0,
+        "cross_border_strike_indicator_7d": 0.0,
+        "momentum": 0.00,
+        "oil_stress": 0.03,
+        "days_since_last_major_event": 3.0,
+        "scheduled_meeting_within_7d": 1.0,
+        "decision_window_indicator": 0.0,
+        "calendar_congestion_score": 2.0
+      },
+      "event_today": 0
+    },
+    {
+      "days_to_deadline": 5,
+      "base_probability": 0.42,
+      "features": {
+        "rolling_sentiment": 0.60,
+        "shock_intensity": 0.16,
+        "official_meeting_count_7d": 2.0,
+        "cross_border_strike_indicator_7d": 0.0,
+        "momentum": 0.01,
+        "oil_stress": 0.00,
+        "days_since_last_major_event": 6.0,
+        "scheduled_meeting_within_7d": 1.0,
+        "decision_window_indicator": 1.0,
+        "calendar_congestion_score": 3.0
+      },
+      "event_today": 1
+    },
+    {
+      "days_to_deadline": 11,
+      "base_probability": 0.54,
+      "features": {
+        "rolling_sentiment": 0.38,
+        "shock_intensity": 0.42,
+        "official_meeting_count_7d": 0.0,
+        "cross_border_strike_indicator_7d": 1.0,
+        "momentum": -0.02,
+        "oil_stress": 0.05,
+        "days_since_last_major_event": 1.0,
+        "scheduled_meeting_within_7d": 0.0,
+        "decision_window_indicator": 0.0,
+        "calendar_congestion_score": 1.0
+      },
+      "event_today": 0
+    },
+    {
+      "days_to_deadline": 7,
+      "base_probability": 0.51,
+      "features": {
+        "rolling_sentiment": 0.35,
+        "shock_intensity": 0.47,
+        "official_meeting_count_7d": 0.0,
+        "cross_border_strike_indicator_7d": 1.0,
+        "momentum": -0.02,
+        "oil_stress": 0.04,
+        "days_since_last_major_event": 2.0,
+        "scheduled_meeting_within_7d": 0.0,
+        "decision_window_indicator": 1.0,
+        "calendar_congestion_score": 2.0
+      },
+      "event_today": 0
+    },
+    {
+      "days_to_deadline": 2,
+      "base_probability": 0.43,
+      "features": {
+        "rolling_sentiment": 0.58,
+        "shock_intensity": 0.19,
+        "official_meeting_count_7d": 2.0,
+        "cross_border_strike_indicator_7d": 0.0,
+        "momentum": 0.02,
+        "oil_stress": 0.01,
+        "days_since_last_major_event": 7.0,
+        "scheduled_meeting_within_7d": 1.0,
+        "decision_window_indicator": 1.0,
+        "calendar_congestion_score": 4.0
+      },
+      "event_today": 1
+    }
+  ],
+  "regime_sequences": [
+    ["calm", "calm", "escalation", "escalation", "de_escalation"],
+    ["calm", "calm", "calm", "de_escalation", "de_escalation"],
+    ["escalation", "escalation", "calm", "de_escalation", "de_escalation"],
+    ["calm", "escalation", "escalation", "escalation", "calm"]
+  ],
+  "evaluation_set": {
+    "market_predictions": [0.34, 0.41, 0.46, 0.52, 0.29, 0.36, 0.57, 0.49],
+    "outcomes": [1, 1, 0, 0, 1, 1, 0, 1]
+  }
+}

@@ -1,0 +1,2 @@
+"""Async ingestion adapters."""
+

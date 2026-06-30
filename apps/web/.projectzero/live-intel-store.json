@@ -1,0 +1,220 @@
+{
+  "sources": {
+    "bbc-world": {
+      "failureCount": 0,
+      "lastCheckedAt": "2026-06-30T00:03:14.201Z",
+      "lastChangedAt": "2026-06-30T00:03:14.201Z",
+      "lastSuccessAt": "2026-06-30T00:03:14.201Z",
+      "lastStatus": 200,
+      "contentHash": "b25eaa793ffa4a92b84c327cbf4d855215ceb1d0d8aa91f600a32d89819f2569"
+    },
+    "nyt-world": {
+      "failureCount": 0,
+      "lastCheckedAt": "2026-06-30T00:03:14.200Z",
+      "lastChangedAt": "2026-06-30T00:01:15.254Z",
+      "lastSuccessAt": "2026-06-30T00:03:14.200Z",
+      "lastStatus": 200,
+      "contentHash": "1749a560d8a3a97bbe7d5b8991f33fb76609005942786cc39afd3321b61c38b1"
+    },
+    "brookings-iran": {
+      "failureCount": 0,
+      "lastCheckedAt": "2026-06-30T00:03:14.202Z",
+      "lastStatus": 200,
+      "lastSuccessAt": "2026-06-30T00:03:14.202Z",
+      "lastModified": "Tue, 30 Jun 2026 00:02:32 GMT",
+      "lastChangedAt": "2026-06-30T00:01:44.717Z",
+      "contentHash": "f1576283633c26815d64e047eaa068ece5b8b4fd2e5947baae2c46a951195ee1"
+    },
+    "whitehouse-fact-sheets": {
+      "failureCount": 0,
+      "lastCheckedAt": "2026-06-30T00:03:14.199Z",
+      "lastChangedAt": "2026-06-30T00:01:15.253Z",
+      "lastSuccessAt": "2026-06-30T00:03:14.199Z",
+      "lastStatus": 200,
+      "contentHash": "46a26561df0721c7c96e2471650f7360f5467707fd0ed377c731257fe41d1350"
+    },
+    "atlantic-council": {
+      "failureCount": 0,
+      "etag": "\"27690c2d6495266c6af8cce085d87458\"",
+      "lastModified": "Mon, 29 Jun 2026 20:41:38 GMT",
+      "lastCheckedAt": "2026-06-30T00:03:14.203Z",
+      "lastChangedAt": "2026-06-29T23:51:50.769Z",
+      "lastSuccessAt": "2026-06-30T00:03:14.203Z",
+      "lastStatus": 200,
+      "contentHash": "45ea35ae18a10bb0e82c445049889e50031ca5e1574214c7047327b0c98d39ec"
+    },
+    "whitehouse-news": {
+      "failureCount": 0,
+      "lastCheckedAt": "2026-06-30T00:03:14.198Z",
+      "lastChangedAt": "2026-06-30T00:01:16.860Z",
+      "lastSuccessAt": "2026-06-30T00:03:14.198Z",
+      "lastStatus": 200,
+      "contentHash": "f616185dba22215f059659eab77a87bf20363e088bbda627dfe37e2ca50897ad"
+    },
+    "iaea-iran": {
+      "failureCount": 1,
+      "lastModified": "Mon, 29 Jun 2026 23:37:11 GMT",
+      "lastCheckedAt": "2026-06-30T00:03:14.200Z",
+      "lastChangedAt": "2026-06-30T00:03:14.200Z",
+      "lastStatus": 403,
+      "contentHash": "88b49b52185f9f017f230210d994146cc5d5e89917ebf67a2e7f6184ac5fbe82",
+      "lastFailureAt": "2026-06-30T00:03:14.200Z"
+    },
+    "ft-world": {
+      "failureCount": 0,
+      "etag": "W/\"2dd0-eCMWFFY+0MeZRUa6Rcj4uolZ1H0\"",
+      "lastCheckedAt": "2026-06-30T00:03:14.202Z",
+      "lastChangedAt": "2026-06-30T00:03:14.202Z",
+      "lastSuccessAt": "2026-06-30T00:03:14.202Z",
+      "lastStatus": 200,
+      "contentHash": "e51d0ddeb231591dad15aae307bd2d3181bdc08191124a5ae3617728e46a0f78"
+    },
+    "wsj-world": {
+      "failureCount": 0,
+      "etag": "W/\"4af2feceebacee87160ab5c387fb1931\"",
+      "lastModified": "Mon, 27 Jan 2025 19:24:55 GMT",
+      "lastCheckedAt": "2026-06-30T00:03:14.201Z",
+      "lastChangedAt": "2026-06-30T00:01:44.714Z",
+      "lastSuccessAt": "2026-06-30T00:03:14.201Z",
+      "lastStatus": 304,
+      "contentHash": "65d660ec406e063f84aebd3d5636c48f60624dec52cb59f87af5801dccdd9e4e"
+    },
+    "dod-releases": {
+      "failureCount": 0,
+      "lastCheckedAt": "2026-06-30T00:03:14.200Z",
+      "lastChangedAt": "2026-06-30T00:01:44.712Z",
+      "lastSuccessAt": "2026-06-30T00:03:14.200Z",
+      "lastStatus": 200,
+      "contentHash": "794f2cca5caf73687b770b28f09ac1d4699bd43dcbb76209c4ecb8507f491ece"
+    },
+    "carnegie-iran-search": {
+      "failureCount": 0,
+      "etag": "\"voewsudlwd1z31\"",
+      "lastCheckedAt": "2026-06-30T00:03:14.203Z",
+      "lastChangedAt": "2026-06-30T00:01:44.717Z",
+      "lastSuccessAt": "2026-06-30T00:03:14.203Z",
+      "lastStatus": 304,
+      "contentHash": "60f9b1178dc46fa4f7791c9f70dd2cb3eff57f883da2e6ccbb6bf349be5834ba"
+    },
+    "foreign-affairs": {
+      "failureCount": 0,
+      "etag": "W/\"1782777156\"",
+      "lastModified": "Mon, 29 Jun 2026 23:52:36 GMT",
+      "lastCheckedAt": "2026-06-30T00:03:14.202Z",
+      "lastChangedAt": "2026-06-30T00:01:44.716Z",
+      "lastSuccessAt": "2026-06-30T00:03:14.202Z",
+      "lastStatus": 304,
+      "contentHash": "7dd2b9181ae009ea1eeadf708e78750fed4e62b2a0d2da59bc6d930e3e1c647d"
+    }
+  },
+  "updates": [
+    {
+      "updateId": "live-bbc-world-2026-06-29T14:52:10.000Z-4",
+      "sourceId": "bbc",
+      "url": "https://www.bbc.co.uk/news/articles/c872rjw17qpo?at_medium=RSS&amp;at_campaign=rss",
+      "headline": "US says it has agreed to 'stand down' after exchange of strikes with Iran",
+      "observedAt": "2026-06-30T00:01:44.695Z",
+      "contentHash": "{\"feed\":\"https://feeds.bbci.co.uk/news/world/rss.xml\",\"link\":\"https://www.bbc.co.uk/news/articles/c872rjw17qpo?at_medium=RSS&amp;at_campaign=rss\"}",
+      "modelAffected": true
+    },
+    {
+      "updateId": "live-foreign-affairs-2026-06-25T04:00:00.000Z-2",
+      "sourceId": "foreign-affairs",
+      "url": "https://www.foreignaffairs.com/iran/iran-didnt-win-war",
+      "headline": "Iran Didn’t Win the War",
+      "observedAt": "2026-06-30T00:01:44.695Z",
+      "contentHash": "{\"feed\":\"https://www.foreignaffairs.com/rss.xml\",\"link\":\"https://www.foreignaffairs.com/iran/iran-didnt-win-war\"}",
+      "modelAffected": false
+    },
+    {
+      "updateId": "live-brookings-iran-0-2026-06-30T00:01:44.697Z",
+      "sourceId": "brookings",
+      "url": "https://www.brookings.edu/regions/middle-east-north-africa/iran/#",
+      "headline": "Iran",
+      "observedAt": "2026-06-30T00:01:44.695Z",
+      "contentHash": "{\"link\":\"https://www.brookings.edu/regions/middle-east-north-africa/iran/#\",\"pageTitle\":\"Iran | Brookings\"}",
+      "modelAffected": false
+    },
+    {
+      "updateId": "live-iaea-iran-0-2026-06-30T00:01:16.854Z",
+      "sourceId": "iaea",
+      "url": "https://www.iaea.org/newscenter/news/iaea-board-of-governors-briefed-on-ukraine-iran-and-global-nuclear-cooperation",
+      "headline": "IAEA Board of Governors Briefed on Ukraine, Iran and Global Nuclear Cooperation",
+      "observedAt": "2026-06-30T00:01:16.853Z",
+      "contentHash": "{\"link\":\"https://www.iaea.org/newscenter/news/iaea-board-of-governors-briefed-on-ukraine-iran-and-global-nuclear-cooperation\",\"pageTitle\":\"Monitoring and Verification in Iran | IAEA\"}",
+      "modelAffected": false
+    },
+    {
+      "updateId": "live-iaea-iran-1-2026-06-30T00:01:16.854Z",
+      "sourceId": "iaea",
+      "url": "https://www.iaea.org/newscenter/statements/iaea-director-generals-introductory-statement-to-the-board-of-governors-2-6-march-2026",
+      "headline": "IAEA Director General&#039;s Introductory Statement to the Board of Governors",
+      "observedAt": "2026-06-30T00:01:16.853Z",
+      "contentHash": "{\"link\":\"https://www.iaea.org/newscenter/statements/iaea-director-generals-introductory-statement-to-the-board-of-governors-2-6-march-2026\",\"pageTitle\":\"Monitoring and Verification in Iran | IAEA\"}",
+      "modelAffected": false
+    },
+    {
+      "updateId": "live-iaea-iran-2-2026-06-30T00:01:16.854Z",
+      "sourceId": "iaea",
+      "url": "https://www.iaea.org/newscenter/statements/iaea-director-generals-introductory-statement-to-the-special-session-of-the-board-of-governors",
+      "headline": "IAEA Director General&#039;s Introductory Statement to the Special Session of the Board of Governors",
+      "observedAt": "2026-06-30T00:01:16.853Z",
+      "contentHash": "{\"link\":\"https://www.iaea.org/newscenter/statements/iaea-director-generals-introductory-statement-to-the-special-session-of-the-board-of-governors\",\"pageTitle\":\"Monitoring and Verification in Iran | IAEA\"}",
+      "modelAffected": false
+    },
+    {
+      "updateId": "live-iaea-iran-3-2026-06-30T00:01:16.854Z",
+      "sourceId": "iaea",
+      "url": "https://www.iaea.org/newscenter/news/director-general-briefs-board-on-iran-developments-ukraine-support-technical-assistance-and-more-19-november-2025",
+      "headline": "Director General Briefs Board on Iran Developments, Ukraine Support, Technical Assistance and More",
+      "observedAt": "2026-06-30T00:01:16.853Z",
+      "contentHash": "{\"link\":\"https://www.iaea.org/newscenter/news/director-general-briefs-board-on-iran-developments-ukraine-support-technical-assistance-and-more-19-november-2025\",\"pageTitle\":\"Monitoring and Verification in Iran | IAEA\"}",
+      "modelAffected": false
+    },
+    {
+      "updateId": "live-iaea-iran-4-2026-06-30T00:01:16.854Z",
+      "sourceId": "iaea",
+      "url": "https://www.iaea.org/contact",
+      "headline": "More on the IAEA",
+      "observedAt": "2026-06-30T00:01:16.853Z",
+      "contentHash": "{\"link\":\"https://www.iaea.org/contact\",\"pageTitle\":\"Monitoring and Verification in Iran | IAEA\"}",
+      "modelAffected": false
+    },
+    {
+      "updateId": "live-nyt-world-2026-06-29T23:42:10.000Z-1",
+      "sourceId": "nyt",
+      "url": "https://www.nytimes.com/live/2026/06/29/world/hormuz-us-iran-strikes",
+      "headline": "Mideast Live Updates: Iran Says Its Delegation Will Be in Doha, but Not for Talks With U.S.",
+      "observedAt": "2026-06-30T00:01:16.853Z",
+      "contentHash": "{\"feed\":\"https://rss.nytimes.com/services/xml/rss/nyt/World.xml\",\"link\":\"https://www.nytimes.com/live/2026/06/29/world/hormuz-us-iran-strikes\"}",
+      "modelAffected": true
+    },
+    {
+      "updateId": "live-nyt-world-2026-06-29T12:34:39.000Z-2",
+      "sourceId": "nyt",
+      "url": "https://www.nytimes.com/2026/06/28/world/europe/iran-us-strait-of-hormuz-peace-talks.html",
+      "headline": "Iran Risks Peace Talks With U.S. to Maintain Leverage Over Strait",
+      "observedAt": "2026-06-30T00:01:16.853Z",
+      "contentHash": "{\"feed\":\"https://rss.nytimes.com/services/xml/rss/nyt/World.xml\",\"link\":\"https://www.nytimes.com/2026/06/28/world/europe/iran-us-strait-of-hormuz-peace-talks.html\"}",
+      "modelAffected": true
+    }
+  ],
+  "modelRefreshRuns": [
+    {
+      "id": "model-refresh-2026-06-30T00:01:45.068Z",
+      "startedAt": "2026-06-30T00:01:45.068Z",
+      "finishedAt": "2026-06-30T00:01:45.068Z",
+      "updatesProcessed": 1,
+      "status": "completed",
+      "note": "Processed 1 normalized live update(s)."
+    },
+    {
+      "id": "model-refresh-2026-06-30T00:01:17.101Z",
+      "startedAt": "2026-06-30T00:01:17.101Z",
+      "finishedAt": "2026-06-30T00:01:17.101Z",
+      "updatesProcessed": 2,
+      "status": "completed",
+      "note": "Processed 2 normalized live update(s)."
+    }
+  ]
+}

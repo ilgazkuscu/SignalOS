@@ -1,0 +1,249 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum SourceEventStatus {
+  CANDIDATE
+  VERIFIED
+  REJECTED
+}
+
+enum SignalDirection {
+  PRO_YES
+  PRO_NO
+  NEUTRAL
+}
+
+enum SignalStatus {
+  CANDIDATE
+  VERIFIED
+  REJECTED
+}
+
+enum ConfidenceLevel {
+  LOW
+  MEDIUM
+  HIGH
+}
+
+model Market {
+  id                String                 @id
+  slug              String                 @unique
+  label             String
+  deadlineAt        DateTime
+  timezone          String
+  createdAt         DateTime               @default(now())
+  updatedAt         DateTime               @updatedAt
+  rules             MarketRule?
+  priceSnapshots    MarketPriceSnapshot[]
+  beliefSnapshots   BeliefSnapshot[]
+}
+
+model MarketRule {
+  id                            String   @id
+  marketId                      String   @unique
+  officialAnnouncementRequired  Boolean
+  truthSocialCounts             Boolean
+  videoStatementCounts          Boolean
+  unnamedSourcesDisallowed      Boolean
+  officialSourcePriority        String
+  clearEndLanguageRequired      Boolean
+  timezone                      String
+  deadlineAt                    DateTime
+  interpretationNotes           String
+  market                        Market   @relation(fields: [marketId], references: [id])
+}
+
+model MarketPriceSnapshot {
+  id                String   @id
+  marketId          String
+  capturedAt        DateTime
+  yesPrice          Float
+  noPrice           Float
+  volume            Float
+  volatilityScore   Float
+  source            String
+  rawPayload        Json
+  market            Market   @relation(fields: [marketId], references: [id])
+}
+
+model SourceRegistry {
+  id                String        @id
+  name              String
+  sourceType        String
+  officialness      Float
+  reliabilityScore  Float
+  adapterKey        String
+  metadata          Json
+  events            SourceEvent[]
+}
+
+model SourceEvent {
+  id                String             @id
+  sourceRegistryId  String
+  externalId        String?
+  sourceType        String
+  title             String
+  body              String
+  occurredAt        DateTime
+  ingestedAt        DateTime           @default(now())
+  status            SourceEventStatus
+  confidence        Float
+  rawPayload        Json
+  extractionMethod  String
+  sourceRegistry    SourceRegistry     @relation(fields: [sourceRegistryId], references: [id])
+  signals           Signal[]
+}
+
+model SignalFamily {
+  id                String    @id
+  key               String    @unique
+  label             String
+  description       String
+  defaultWeight     Float
+  defaultDecayHours Float
+  signals           Signal[]
+}
+
+model Signal {
+  id                String          @id
+  familyId          String
+  sourceEventId     String
+  type              String
+  subtype           String
+  direction         SignalDirection
+  magnitude         Float
+  confidence        Float
+  decayCurve        String
+  occurredAt        DateTime
+  rationale         String
+  derivedFeatures   Json
+  rawPayload        Json
+  extractionMethod  String
+  status            SignalStatus
+  correlationKey    String?
+  sourceEvent       SourceEvent      @relation(fields: [sourceEventId], references: [id])
+  family            SignalFamily     @relation(fields: [familyId], references: [id])
+}
+
+model BeliefSnapshot {
+  id                           String                @id
+  marketId                     String
+  capturedAt                   DateTime
+  profileKey                   String
+  trueDeescalationProbability  Float
+  formalAnnouncementProbability Float
+  yesProbability               Float
+  noProbability                Float
+  resolutionFrictionScore      Float
+  confidenceScore              Float
+  confidenceLabel              ConfidenceLevel
+  modelNotes                   String
+  dateBucketProbabilities      Json
+  latentState                  Json
+  market                       Market                @relation(fields: [marketId], references: [id])
+  explanations                 BeliefExplanation[]
+}
+
+model BeliefExplanation {
+  id                  String          @id
+  beliefSnapshotId    String
+  signalId            String?
+  title               String
+  narrative           String
+  pointsDelta         Float
+  polarity            String
+  explanationType     String
+  explanationMeta     Json
+  beliefSnapshot      BeliefSnapshot  @relation(fields: [beliefSnapshotId], references: [id])
+}
+
+model Scenario {
+  id                  String          @id
+  name                String
+  description         String
+  createdAt           DateTime        @default(now())
+  updatedAt           DateTime        @updatedAt
+  scenarioEvents      ScenarioEvent[]
+}
+
+model ScenarioEvent {
+  id                  String    @id
+  scenarioId          String
+  title               String
+  eventType           String
+  payload             Json
+  occurredAt          DateTime
+  scenario            Scenario  @relation(fields: [scenarioId], references: [id])
+}
+
+model WeightProfile {
+  id                  String    @id
+  key                 String    @unique
+  label               String
+  description         String
+  familyWeights       Json
+  recencyHalfLifeHours Float
+  contradictionPenalty Float
+  correlationPenalty  Float
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+}
+
+model OperatorOverride {
+  id                  String    @id
+  targetType          String
+  targetId            String
+  overrideKey         String
+  overrideValue       Json
+  rationale           String
+  createdAt           DateTime  @default(now())
+}
+
+model ReplaySession {
+  id                  String    @id
+  name                String
+  startedAt           DateTime
+  endedAt             DateTime
+  cursorAt            DateTime
+  profileKey          String
+  outcomeLabel        String?
+  metadata            Json
+}
+
+model StatementClassification {
+  id                  String   @id
+  sourceEventId       String?
+  label               String
+  deescalationScore   Float
+  announcementScore   Float
+  qualifiesYesProbability Float
+  rationale           String
+  extractedPhrases    Json
+  metadata            Json
+}
+
+model Job {
+  id                  String   @id
+  jobType             String
+  status              String
+  startedAt           DateTime
+  finishedAt          DateTime?
+  metadata            Json
+}
+
+model IngestionRun {
+  id                  String   @id
+  adapterKey          String
+  startedAt           DateTime
+  finishedAt          DateTime?
+  recordsSeen         Int
+  recordsNormalized   Int
+  recordsRejected     Int
+  metadata            Json
+}

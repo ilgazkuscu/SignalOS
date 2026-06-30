@@ -1,0 +1,89 @@
+{
+  "sources": {
+    "ft-world": {
+      "failureCount": 0,
+      "etag": "W/\"2d5a-zBDk6x/i9suGoST2xcYksujPaL8\"",
+      "lastCheckedAt": "2026-05-15T20:40:21.231Z",
+      "lastChangedAt": "2026-05-15T20:40:21.231Z",
+      "lastSuccessAt": "2026-05-15T20:40:21.231Z",
+      "lastStatus": 200,
+      "contentHash": "75dd7aa13948bdb47d03247a1c0b31d20a489bdd88f9afe26019bb0419a1bfdc"
+    },
+    "atlantic-council": {
+      "failureCount": 0,
+      "etag": "\"01d239ee86f6823506aa3d98f333f548\"",
+      "lastModified": "Fri, 15 May 2026 20:37:31 GMT",
+      "lastCheckedAt": "2026-05-15T20:40:21.237Z",
+      "lastChangedAt": "2026-05-15T20:40:21.237Z",
+      "lastSuccessAt": "2026-05-15T20:40:21.237Z",
+      "lastStatus": 200,
+      "contentHash": "0c7b73dcbaf3b50987da069b76399e63b537f90d54cd6ce8287b5dff5067d664"
+    }
+  },
+  "updates": [
+    {
+      "updateId": "live-nyt-world-2026-05-15T19:36:30.000Z-5",
+      "sourceId": "nyt",
+      "url": "https://www.nytimes.com/2026/05/15/world/middleeast/execution-iran-ceasefire.html",
+      "headline": "Executions Surge in Iran Since Cease-Fire, Rights Groups Say",
+      "observedAt": "2026-05-15T20:40:21.192Z",
+      "contentHash": "{\"feed\":\"https://rss.nytimes.com/services/xml/rss/nyt/World.xml\",\"link\":\"https://www.nytimes.com/2026/05/15/world/middleeast/execution-iran-ceasefire.html\"}",
+      "modelAffected": false
+    },
+    {
+      "updateId": "live-bbc-world-2026-05-15T20:26:51.000Z-2",
+      "sourceId": "bbc",
+      "url": "https://www.bbc.com/news/articles/cqlpzzl0d67o?at_medium=RSS&amp;at_campaign=rss",
+      "headline": "Israel and Lebanon agree to extend ceasefire, US state department says",
+      "observedAt": "2026-05-15T20:40:21.192Z",
+      "contentHash": "{\"feed\":\"https://feeds.bbci.co.uk/news/world/rss.xml\",\"link\":\"https://www.bbc.com/news/articles/cqlpzzl0d67o?at_medium=RSS&amp;at_campaign=rss\"}",
+      "modelAffected": true
+    },
+    {
+      "updateId": "live-ft-world-2026-05-15T20:30:49.000Z-0",
+      "sourceId": "ft",
+      "url": "https://www.ft.com/content/02015e49-fe11-488f-9e45-9fe70943d155",
+      "headline": "Global bonds tumble on fears of inflation shock from Iran war",
+      "observedAt": "2026-05-15T20:40:21.192Z",
+      "contentHash": "{\"feed\":\"https://www.ft.com/world?format=rss\",\"link\":\"https://www.ft.com/content/02015e49-fe11-488f-9e45-9fe70943d155\"}",
+      "modelAffected": false
+    },
+    {
+      "updateId": "live-brookings-iran-0-2026-05-15T20:40:21.193Z",
+      "sourceId": "brookings",
+      "url": "https://www.brookings.edu/regions/middle-east-north-africa/iran/#",
+      "headline": "Iran",
+      "observedAt": "2026-05-15T20:40:21.192Z",
+      "contentHash": "{\"link\":\"https://www.brookings.edu/regions/middle-east-north-africa/iran/#\",\"pageTitle\":\"Iran | Brookings\"}",
+      "modelAffected": false
+    },
+    {
+      "updateId": "live-atlantic-council-2026-05-15T17:11:42.000Z-2",
+      "sourceId": "atlantic-council",
+      "url": "https://www.atlanticcouncil.org/content-series/fastthinking/what-did-trump-and-xi-accomplish/",
+      "headline": "What did Trump and Xi accomplish?",
+      "observedAt": "2026-05-15T20:40:21.192Z",
+      "contentHash": "{\"feed\":\"https://www.atlanticcouncil.org/feed/\",\"link\":\"https://www.atlanticcouncil.org/content-series/fastthinking/what-did-trump-and-xi-accomplish/\"}",
+      "modelAffected": true
+    },
+    {
+      "updateId": "live-atlantic-council-2026-05-14T19:53:37.000Z-6",
+      "sourceId": "atlantic-council",
+      "url": "https://www.atlanticcouncil.org/blogs/menasource/five-ways-the-iran-war-will-forever-alter-the-middle-east/",
+      "headline": "Five ways the Iran war will forever alter the Middle East",
+      "observedAt": "2026-05-15T20:40:21.192Z",
+      "contentHash": "{\"feed\":\"https://www.atlanticcouncil.org/feed/\",\"link\":\"https://www.atlanticcouncil.org/blogs/menasource/five-ways-the-iran-war-will-forever-alter-the-middle-east/\"}",
+      "modelAffected": false
+    }
+  ],
+  "modelRefreshRuns": [
+    {
+      "id": "model-refresh-2026-05-15T20:40:21.695Z",
+      "startedAt": "2026-05-15T20:40:21.695Z",
+      "finishedAt": "2026-05-15T20:40:21.695Z",
+      "updatesProcessed": 2,
+      "status": "completed",
+      "note": "Processed 2 normalized live update(s)."
+    }
+  ]
+}
