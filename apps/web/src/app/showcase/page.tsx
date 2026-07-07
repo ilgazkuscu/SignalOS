@@ -119,11 +119,12 @@ export default function ShowcasePage() {
   };
 
   return (
-    <main className="showcase-deck min-h-screen snap-y snap-mandatory overflow-x-hidden bg-[#020304] font-sans text-[#F3F4F0] selection:bg-[#DDFDFA] selection:text-black">
+    <main className="showcase-deck min-h-screen min-h-dvh snap-y snap-mandatory overflow-x-hidden overscroll-y-contain bg-[#020304] font-sans text-[#F3F4F0] selection:bg-[#DDFDFA] selection:text-black">
       <style jsx global>{`
         html {
           scroll-snap-type: y mandatory;
           background: #020304;
+          overscroll-behavior-y: contain;
         }
 
         @media (prefers-reduced-motion: no-preference) {
@@ -268,7 +269,7 @@ const Slide = React.forwardRef<HTMLElement, { index: number; activeSlide: number
       ref={ref}
       data-slide-index={index}
       aria-labelledby={titleId}
-      className="relative flex min-h-screen snap-start flex-col justify-center px-5 pb-16 pt-20 sm:px-8 lg:px-12"
+      className="relative flex min-h-screen min-h-dvh snap-start flex-col justify-center px-5 pb-16 pt-20 sm:px-8 lg:px-12"
     >
       <div
         className="showcase-slide-content relative z-10 mx-auto w-full max-w-[1440px] transition duration-700 ease-out"

@@ -13,6 +13,7 @@ import ModelPage from "@/app/(routes)/model/page";
 import ReplayPage from "@/app/(routes)/replay/page";
 import RulesPage from "@/app/(routes)/rules/page";
 import AdminPage from "@/app/(routes)/admin/page";
+import { getDefaultFamilyId } from "@/engine/families";
 
 const navigationMocks = vi.hoisted(() => ({
   redirect: vi.fn((url: string) => {
@@ -34,27 +35,26 @@ async function renderPage(page: () => Promise<React.ReactElement> | React.ReactE
 
 describe("route-level page sanity", () => {
   it("sends the public root directly into the usable dashboard", () => {
-    expect(() => RootPage()).toThrow(/NEXT_REDIRECT:\/dashboard\?family=hormuz-closure&tab=howto/);
-    expect(navigationMocks.redirect).toHaveBeenCalledWith(
-      "/dashboard?family=hormuz-closure&tab=howto",
-    );
+    const expectedUrl = `/dashboard?family=${getDefaultFamilyId()}&tab=howto`;
+    expect(() => RootPage()).toThrow(`NEXT_REDIRECT:${expectedUrl}`);
+    expect(navigationMocks.redirect).toHaveBeenCalledWith(expectedUrl);
   });
 
   it("renders the dashboard page", async () => {
     const html = await renderPage(DashboardPage);
     expect(html).toContain("SignalOS");
-    expect(html).toContain("Where you actually hear the news.");
+    expect(html).toContain("SignalOS reads news, checks what matters, and shows how the prediction changed.");
   });
 
   it("renders the signals page", async () => {
     const html = await renderPage(SignalsPage);
-    expect(html).toContain("Signal Controls");
-    expect(html).toContain("Normalized Signals");
+    expect(html).toContain("Evidence Controls");
+    expect(html).toContain("Evaluated Evidence");
   });
 
   it("renders the timeline page", async () => {
     const html = await renderPage(TimelinePage);
-    expect(html).toContain("Event Timeline");
+    expect(html).toContain("Full Timeline");
   });
 
   it("renders the playbook page", async () => {
@@ -65,8 +65,8 @@ describe("route-level page sanity", () => {
 
   it("renders the journal page", async () => {
     const html = await renderPage(JournalPage);
-    expect(html).toContain("Trade Journal");
-    expect(html).toContain("Trade Ledger");
+    expect(html).toContain("Decision Log");
+    expect(html).toContain("Decision History");
   });
 
   it("renders the scenario lab page", async () => {
@@ -77,23 +77,23 @@ describe("route-level page sanity", () => {
 
   it("renders the replay page", async () => {
     const html = await renderPage(ReplayPage);
-    expect(html).toContain("Replay Controls");
-    expect(html).toContain("Replay Overlay");
+    expect(html).toContain("Proof Controls");
+    expect(html).toContain("Proof Chart");
   });
 
   it("renders the model page", async () => {
     const html = await renderPage(ModelPage);
-    expect(html).toContain("The Core Idea");
-    expect(html).toContain("The Math");
+    expect(html).toContain("Core Idea");
+    expect(html).toContain("What Happened");
   });
 
   it("renders the rules page", async () => {
     const html = await renderPage(RulesPage);
-    expect(html).toContain("Resolution Rules");
+    expect(html).toContain("Why Rules Matter");
   });
 
   it("renders the admin page", async () => {
     const html = await renderPage(AdminPage);
-    expect(html).toContain("Weight Profiles");
+    expect(html).toContain("Alert Sensitivity");
   });
 });
