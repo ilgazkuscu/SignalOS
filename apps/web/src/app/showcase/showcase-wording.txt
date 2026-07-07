@@ -1,0 +1,134 @@
+SignalOS Showcase Wording
+
+Slide 1
+Eyebrow: SignalOS
+Title: The Polymarket YES price moved. Nobody could explain why fast enough.
+Kicker: SignalOS visual narrative
+Lead: A decision window opens before the story becomes obvious.
+Body: SignalOS turns scattered public updates into a replayable trail: what changed, when belief moved, and why the move was defensible.
+Button: Follow the Signal
+Button: Reveal the System
+Hero label: Live signal surface
+Hero metric label: Current belief
+Hero evidence label: Active evidence
+
+Slide 2
+Eyebrow: 01 / tension
+Title: First, watch the belief move before we explain the machinery.
+Chart label: SignalOS belief
+Chart label: Polymarket
+Readout label: SignalOS belief
+Readout label: Polymarket
+Readout label: Replay step
+Evidence label: Active evidence
+Control: Run
+Control: Pause
+Control: Next
+Control: Reset
+Bridge label: Question this slide leaves open
+Bridge text: If the line jumps, what evidence earned the jump?
+
+Slide 3
+Eyebrow: 02 / perspective shift
+Title: Zoom out: price is the shadow, not the object.
+Metric label: Polymarket YES price
+Metric body: The prediction price compresses many hidden reasons into one number.
+Visual label: Hidden causal layer
+Visual title: Reveal the reason underneath the number.
+Visual body: The narrative moves from a macro price to the micro evidence that created it, then back out to a recommendation the audience can trust.
+Visual label: Observed price
+Visual label: Explained belief
+Block label: Tracked question
+Block title: Trump announces end of U.S. military operations against Iran by June 30
+Block body: The deck follows how public events, diplomatic cues, and post-conflict analysis changed the belief path.
+Block label: Core claim
+Block title: SignalOS sells the missing layer: causality you can inspect.
+Block body: A prediction-price chart tells you where consensus landed. This replay shows the source-backed sequence that got it there.
+
+Slide 4
+Eyebrow: 03 / micro view
+Title: Now zoom into one update becoming a belief change.
+System label: One update through the machine
+System note: Macro to micro to macro
+Stage label: Raw update
+Stage label: Materiality
+Stage value: Belief-changing evidence
+Stage value: Context, no material move
+Stage label: Delta
+Stage label: Output
+Timeline label: Evidence-backed timeline
+Timeline note: Click a node to inspect
+Method title: Ingest
+Method body: Relevant headlines enter with source, time, and event context preserved.
+Method title: Score
+Method body: The system separates material events from read-only context, then updates the visible probability path.
+Method title: Explain
+Method body: Every movement remains tied to the headline and explanation that caused it.
+
+Slide 5
+Eyebrow: 04 / proof
+Title: 7 reads become 4 material changes. The trail stays inspectable.
+Bridge label: What this resolves
+Bridge text: The audience is no longer asked to trust a model output. They can audit the path.
+Status label: Changed
+Status label: Read
+
+Slide 6
+Eyebrow: 05 / credibility
+Title: The persuasive point: this is a briefing layer, not a black box.
+Method title: Source-weighted analysis
+Method body: Updates are framed as evidence, not vibes. Each event has a visible reason.
+Method title: Signal evolution
+Method body: The graph makes temporal change the main object of inspection.
+Method title: Outside comparison
+Method body: Market probability remains visible so model movement can be challenged.
+Method title: Replay controls
+Method body: Run, step, and reset turn the model path into a presentable artifact.
+Outcome label: Outcome
+Outcome text: What the user learns is not simply that the probability changed. They learn which source made the change defensible.
+
+Slide 7
+Eyebrow: 06 / recommendation
+Title: Recommendation: fund the product that explains the number.
+Panel label: Final recommendation
+Metric label: SignalOS YES belief
+Metric value: 92.6%
+Metric label: Polymarket YES
+Metric value: 94.0%
+Body: Build this as the decision-intelligence layer between raw public signals and high-stakes action: graph, timeline, reason, and review surface in one continuous proof path.
+Link: Open Demo
+Link: Open Timeline
+Link: Open Model
+Link: Replay Analysis
+
+Persistent / navigation copy
+Sticky replay prefix: Signal replay
+Navigation label: Open surface
+Navigation link: Demo
+Navigation link: Timeline
+Navigation link: Model
+Navigation link: Replay
+Navigation link: Dashboard
+Narrative rail: Hook
+Narrative rail: Move
+Narrative rail: Cause
+Narrative rail: Update
+Narrative rail: Proof
+Narrative rail: Trust
+Narrative rail: Act
+
+Dynamic evidence copy
+Step 1 headline: Trump says objective achieved, peace possible
+Step 1 why: Read and evaluated as peace framing; raised the chance of a June 30 resolution.
+Step 2 headline: White House says operations paused while diplomacy proceeds
+Step 2 why: Read and evaluated as unclear official wording; reduced confidence in a clean resolution.
+Step 3 headline: Muscat talks scheduled
+Step 3 why: Read and evaluated as diplomacy news; added a credible path toward agreement.
+Step 4 headline: Official explicit end statement
+Step 4 why: Read and saved as context; no material move for current thresholds.
+Step 5 headline: U.S. and Iran to Meet with Mediators in Qatar
+Step 5 why: Read and evaluated as diplomatic channel; strong move toward resolution.
+Step 6 headline: After U.S.-Iran War, Oman Is Said to Propose Strait of Hormuz Fee Plan
+Step 6 why: Read and evaluated as diplomacy news; no material move after the Qatar update.
+Step 7 headline: Foreign Affairs publishes post-conflict analysis
+Step 7 why: Read as source analysis; useful context, but no material move for current thresholds.
