@@ -18,9 +18,9 @@ describe("signal explorer", () => {
     render(<SignalExplorer initialData={initialData} />);
 
     await waitFor(() => {
-      expect(screen.getByText(/Signal API degraded/i)).toBeTruthy();
+      expect(screen.getByText(/Evidence feed degraded/i)).toBeTruthy();
     });
-    expect(screen.getByText(/showing the last successful payload/i)).toBeTruthy();
+    expect(screen.getByText(/showing the last saved data/i)).toBeTruthy();
   });
 
   it("renders candidate projected impact details", async () => {
@@ -36,7 +36,7 @@ describe("signal explorer", () => {
     render(<SignalExplorer initialData={initialData} />);
 
     await waitFor(() => {
-      expect(screen.getByText(/Projected impact if verified/i)).toBeTruthy();
+      expect(screen.getByText(/Possible impact if confirmed/i)).toBeTruthy();
     });
     expect(screen.getAllByText(/explicit_end_language/i).length).toBeGreaterThan(0);
   });

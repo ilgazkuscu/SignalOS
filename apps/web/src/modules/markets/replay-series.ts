@@ -1,7 +1,7 @@
-import { BeliefEngine } from "@/lib/engine/belief-engine";
+import { BeliefEngine } from "@/modules/belief";
 import type { MarketDefinition, MarketHistoryPoint, MarketSnapshot, Signal, WeightProfileKey } from "@/lib/types/domain";
 import { compareIsoAsc } from "@/lib/utils/sort";
-import type { BucketSnapshot, FamilyReplaySeries, MarketFamily, ReplayFrame } from "@/engine/family";
+import type { BucketSnapshot, FamilyReplaySeries, MarketFamily, ReplayFrame } from "./types";
 
 type MarketHistoryLikePoint = {
   timestamp: string;

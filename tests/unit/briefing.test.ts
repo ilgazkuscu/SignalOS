@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { buildEliteBriefMarkdown } from "@/lib/intelligence/briefing";
+import { buildEliteBriefMarkdown } from "@/modules/intelligence";
 import type { TimelinePayload } from "@/lib/types/domain";
 
 const timeline: TimelinePayload = {

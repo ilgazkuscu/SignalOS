@@ -1,6 +1,6 @@
 import React from "react";
 import { ExternalLink } from "lucide-react";
-import type { FamilyEngineOutput, MarketFamily } from "@/engine/family";
+import type { FamilyEngineOutput, MarketFamily } from "@/modules/markets";
 
 function pct(value: number) {
   return `${Math.round(value * 100)}%`;

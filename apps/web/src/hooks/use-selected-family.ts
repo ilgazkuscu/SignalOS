@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { getDefaultFamilyId, getFamilyById, registeredFamilies } from "@/engine/families";
+import { getDefaultFamilyId, getFamilyById, registeredFamilies } from "@/modules/markets";
 
 export function useSelectedFamily() {
   const router = useRouter();

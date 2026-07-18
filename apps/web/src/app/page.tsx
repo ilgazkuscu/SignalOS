@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
-import { getDefaultFamilyId } from "@/engine/families";
+import { getDefaultFamilyId } from "@/modules/markets";
 
 export const dynamic = "force-dynamic";
 

@@ -3,9 +3,9 @@ requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "signalos-iran"
-version = "0.1.0"
-description = "SignalOS Iran Phase Detector"
+name = "signalos-intelligence"
+version = "0.2.0"
+description = "SignalOS intelligence API and specialized Iran phase detector"
 requires-python = ">=3.11"
 dependencies = []
 

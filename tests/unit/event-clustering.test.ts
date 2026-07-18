@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { clusterSourceEvents } from "@/lib/intelligence/event-clustering";
+import { clusterSourceEvents } from "@/modules/intelligence";
 import type { SourceEvent } from "@/lib/types/domain";
 
 describe("event clustering ranking", () => {

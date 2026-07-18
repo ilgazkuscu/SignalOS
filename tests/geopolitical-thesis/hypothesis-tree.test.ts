@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { buildHypothesisTree } from "@/lib/geopolitical-thesis/hypothesis-tree";
+import { buildHypothesisTree } from "@/modules/thesis";
 
 describe("hypothesis tree", () => {
   it("builds the required geopolitical hypotheses", () => {

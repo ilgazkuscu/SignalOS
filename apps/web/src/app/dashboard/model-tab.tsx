@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Panel } from "@/components/panel";
-import type { FamilyEngineOutput, MarketFamily } from "@/engine/family";
+import type { FamilyEngineOutput, MarketFamily } from "@/modules/markets";
 import type { DashboardPayload } from "@/lib/types/domain";
 import { friendlyCopy, friendlySignalLabel } from "@/lib/friendly-signal-copy";
 

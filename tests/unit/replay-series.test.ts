@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
-import { computeEngineReplaySeries, computeReplaySeries } from "@/engine/replay-series";
-import { iranOpsEndgameFamily } from "@/engine/families/iran-ops-endgame";
-import type { MarketFamily } from "@/engine/family";
+import { computeEngineReplaySeries, computeReplaySeries } from "@/modules/markets";
+import { iranOpsEndgameFamily } from "@/modules/markets";
+import type { MarketFamily } from "@/modules/markets";
 import type { Signal } from "@/lib/types/domain";
 import { demoFixtures } from "../../fixtures/demo";
 

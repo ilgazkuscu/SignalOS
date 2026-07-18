@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Panel } from "@/components/panel";
-import type { MarketLink, TradeDecision } from "@/lib/geopolitical-thesis/types";
+import type { MarketLink, TradeDecision } from "@/modules/thesis";
 
 export function MarketMapPanel({
   links,

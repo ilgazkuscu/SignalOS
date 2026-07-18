@@ -1,5 +1,5 @@
 import type { CoverageSource, EventCluster, NarrativeTrend, NewsSummaryItem, SourceEvent } from "@/lib/types/domain";
-import { sourceDomain, sourceEventUrl } from "@/lib/intelligence/source-url";
+import { sourceDomain, sourceEventUrl } from "./source-url";
 
 function normalize(value: string) {
   return value

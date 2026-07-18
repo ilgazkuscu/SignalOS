@@ -1,8 +1,8 @@
 import React from "react";
-import type { FamilySignalRow } from "@/engine/family";
+import type { FamilySignalRow } from "@/modules/markets";
 import { SourceBadge } from "@/components/source-badge";
 import { friendlyCopy, friendlySignalLabel } from "@/lib/friendly-signal-copy";
-import { sourceDomain } from "@/lib/intelligence/source-url";
+import { sourceDomain } from "@/modules/intelligence";
 import { formatDateTimeEt } from "@/lib/utils/time";
 
 function signed(value: number) {

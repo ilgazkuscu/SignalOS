@@ -3,7 +3,7 @@
 import React from "react";
 import { NewsItem } from "@/components/news-item";
 import { Panel } from "@/components/panel";
-import type { FamilyEngineOutput, MarketFamily } from "@/engine/family";
+import type { FamilyEngineOutput, MarketFamily } from "@/modules/markets";
 
 export function NewsTab({
   family,

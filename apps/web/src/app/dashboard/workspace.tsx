@@ -10,7 +10,7 @@ import { NewsTab } from "./news-tab";
 import { PlaybookTab } from "./playbook-tab";
 import { ReplayTab } from "./replay-tab";
 import { SignalsTab } from "./signals-tab";
-import { registeredFamilies } from "@/engine/families";
+import { registeredFamilies } from "@/modules/markets";
 import { useSelectedFamily } from "@/hooks/use-selected-family";
 import { useFamilyEngineOutput } from "@/hooks/use-family-engine-output";
 import { useFixtureMode } from "@/components/providers";

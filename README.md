@@ -1,210 +1,141 @@
-# IRAN OPS ENDGAME ENGINE
+# SignalOS
 
-Analyst-grade web application for estimating whether a resolution-sensitive geopolitical prediction market resolves `YES` by each listed date bucket.
+SignalOS turns fast-moving public news into an inspectable prediction: what
+changed, how strongly it matters, and why the current belief moved.
 
-## What It Does
+[Live showcase](https://signalos-showcase.vercel.app/showcase) ·
+[Architecture](docs/architecture.md) ·
+[Module map](docs/repo-map.md) ·
+[Documentation](docs/README.md) ·
+[Versioning](docs/versioning.md)
 
-The system is built around one core distinction:
-
-- `Reality`: are U.S. military operations against Iran actually winding down?
-- `Resolution`: is there likely to be a qualifying public statement that satisfies market rules?
-
-The engine combines:
-
-- date-based prior curves
-- structured signal ingestion
-- family-weighted evidence updates
-- contradiction and correlation penalties
-- resolution-friction modeling
-- market-vs-model discrepancy analysis
-- scenario simulation
-- deterministic replay/backtest
-- temporal replay series that preserve active vs. closed bucket state with no future signal leakage
-
-Replay series are frame-based rather than a flat overlay: each frame records every family bucket as `not_yet_issued`, `active`, or `closed`, computes aggregates from active buckets only, and only includes signals that had actually occurred by that timestamp. That keeps historical replay honest: a signal from April 10 cannot influence an April 5 frame, and an expired bucket like April 15 remains available for history without contaminating the live ladder after it closes.
-
-## Stack
-
-- Next.js App Router
-- TypeScript
-- Tailwind CSS
-- Prisma schema targeting PostgreSQL
-- fixture-backed adapters for fully offline development
-- live market and live timeline overlays with fallback-to-fixture behavior
-- Vitest for unit and integration testing
-
-## Repo Layout
+## The Core Loop
 
 ```text
-apps/web/src/app
-apps/web/src/components
-apps/web/src/features
-apps/web/src/lib/api
-apps/web/src/lib/adapters
-apps/web/src/lib/classifiers
-apps/web/src/lib/db
-apps/web/src/lib/engine
-apps/web/src/lib/types
-fixtures
-prisma
-tests
-docs
-md
+public evidence -> meaning and strength -> belief update -> inspectable summary
 ```
 
-## Local Setup
+The market price is an outside view. SignalOS preserves the causal layer beneath
+it: source-backed evidence, model interpretation, and a replayable belief path.
 
-1. Install Node 20+ and npm.
-2. Copy `.env.example` to `.env`.
-3. Run the one-command startup flow with `./run.sh`.
+## Architecture
 
-If you prefer the manual path:
+```mermaid
+flowchart LR
+  Sources["Public sources"] --> Intelligence["Intelligence module"]
+  Intelligence --> Thesis["Thesis module"]
+  Thesis --> Belief["Belief module"]
+  Markets["Market data"] --> MarketsModule["Markets module"]
+  Belief --> MarketsModule
+  MarketsModule --> Service["Service layer"]
+  Service --> Web["Next.js analyst workspace"]
+```
 
-1. Install dependencies with `npm install`.
-2. Generate Prisma client with `npm run db:generate`.
-3. Run `npm run typecheck`.
-4. Run `npm test`.
-5. Run `npm run build`.
-6. Run the app with `npm run dev`.
+The TypeScript domain is split into four public modules:
 
-You can also use `make run`.
+| Module | Responsibility | Public API |
+| --- | --- | --- |
+| `belief` | priors, confidence, updates, explanations | `@/modules/belief` |
+| `markets` | market families and deterministic replay | `@/modules/markets` |
+| `intelligence` | source normalization, clustering, briefings | `@/modules/intelligence` |
+| `thesis` | evidence, scenarios, scoring, decisions | `@/modules/thesis` |
 
-The current implementation is fixture-first and works without live APIs. PostgreSQL is modeled in Prisma for future persistence, but the default demo uses in-memory fixture data through `DemoRepository`.
+Application code imports only these public entry points. `npm run
+architecture:check` prevents accidental coupling to module internals.
 
-## Verified Commands
+## Repository Map
 
-The following commands have been validated locally in this repo:
+```text
+apps/web/                 Primary Next.js product and showcase
+  src/modules/            Domain modules and their public APIs
+  src/lib/                Shared infrastructure, adapters, and utilities
+  src/features/           User-facing feature views
+signalos/                 Python intelligence API and ingestion runtime
+fixtures/                 Deterministic development inputs
+tests/                    TypeScript and Python verification
+data/                     Versioned research data and fixtures
+docs/                     Architecture, methodology, and operations
+scripts/                  Validation, ingestion, and maintenance commands
+prisma/                   Persistence schema and seed path
+```
 
-- `npm install`
-- `npm run db:generate`
-- `npm run typecheck`
-- `npm test`
-- `npm run build`
-- `npm run dev`
+Start with [`apps/web/src/modules/README.md`](apps/web/src/modules/README.md) to
+understand the domain, then [`docs/data-flow.md`](docs/data-flow.md) to follow a
+source item through the system.
 
-## Scripts
+## Run Locally
 
-- `npm run dev`
-- `npm run build`
-- `npm run start`
-- `npm run lint`
-- `npm run typecheck`
-- `npm test`
-- `npm run benchmark`
-- `npm run news:poll`
-- `npm run news:loop`
-- `npm run maint:check`
-- `npm run db:generate`
-- `npm run db:push`
-- `npm run db:migrate`
-- `npm run seed`
+Requirements: Node.js 20+ and npm.
 
-Use `make validate` when you want the full local confidence pass: lint, typecheck, tests, production build, and the lightweight transform benchmark.
+```bash
+npm install
+npm run dev
+```
 
-## Key Pages
+Open [http://127.0.0.1:3000/showcase](http://127.0.0.1:3000/showcase) for the
+presentation or [http://127.0.0.1:3000/dashboard](http://127.0.0.1:3000/dashboard)
+for the analyst workspace.
 
-- `/` redirects to the selector-driven dashboard workspace
-- `/dashboard?family=iran-ops-endgame` selector-driven workspace
-- `/signals` signal explorer
-- `/timeline` event timeline
-- `/scenario-lab` scenario simulator
-- `/model` model explainer
-- `/replay` deterministic replay
-- `/rules` resolution rules inspector
-- `/admin` weight profile viewer
+The web app is fixture-first and works without live credentials. Optional live
+sources fall back to deterministic fixtures when unavailable.
 
-The dashboard now includes:
+## Validate A Change
 
-- trade / watch / no-trade classification
-- thesis-change boxes per bucket
-- cross-bucket dislocation analytics
-- catalyst calendar
-- signal hit-rate tracking
-- position sizing guidance
+```bash
+npm run validate
+```
 
-## How The Dropdown Drives The App
+That single command checks module boundaries, lint, TypeScript, tests, and the
+production build. CI runs the same command on every pull request.
 
-- The active bet is controlled by the `family` query param, for example `/dashboard?family=iran-ops-endgame` or `/dashboard?family=hormuz-closure`.
-- The persistent bet selector in the header is the single source of truth for the workspace.
-- Dashboard, Signals, News, Playbook, and Replay all render from the selected family plus the computed family engine output.
-- Switching bets updates the URL instead of doing a full page reload, so links are shareable and survive refresh.
+Useful focused commands:
 
-## Live Intelligence Layer
+| Command | Purpose |
+| --- | --- |
+| `npm run architecture:check` | enforce public module boundaries |
+| `npm run lint` | check TypeScript and React conventions |
+| `npm run typecheck` | verify contracts without emitting files |
+| `npm test` | run deterministic unit and integration tests |
+| `npm run build` | verify the production Next.js bundle |
+| `npm run news:poll` | run one live-news polling cycle |
 
-- Live market prices update from Polymarket while signals can still run in fixture-backed mode.
-- The timeline ingests major news and strategic-analysis feeds, follows a limited number of article links, and classifies enriched article context.
-- The dashboard surfaces thresholded alerts, catalyst-aware live news, and ranked opportunities instead of only raw model-market gaps.
-- The live intel layer now supports one-shot polling, a local loop runner, conditional fetch checks, persisted source state, and source health inspection at `/api/timeline/health`.
-- Additional product notes live in [`md/LIVE_INTELLIGENCE_LAYER.md`](md/LIVE_INTELLIGENCE_LAYER.md) and [`md/COMMERCIALIZATION_NOTES.md`](md/COMMERCIALIZATION_NOTES.md).
-- Decision-system documentation lives in the `docs/` folder, including trade scoring, thesis generation, dislocation math, catalyst calendar, hit-rate tracking, and sizing guidance.
+## Product Surfaces
 
-## Operating The Live Layer
+| Route | Purpose |
+| --- | --- |
+| `/showcase` | concise vertical product presentation |
+| `/research` | create and reopen persistent market workspaces |
+| `/dashboard` | prediction, evidence, and decision workspace |
+| `/timeline` | chronological source and narrative view |
+| `/model` | inspect model logic and variables |
+| `/replay` | replay evidence without future leakage |
+| `/scenario-lab` | test alternate evidence paths |
 
-- Run one cycle with `npm run news:poll`
-- Run a local polling loop with `npm run news:loop`
-- Inspect source health at `GET /api/timeline/health`
-- Run the maintenance confidence pass with `npm run maint:check`
+## Model Position
 
-Local persistent polling state lives in `.projectzero/live-intel-store.json`.
+SignalOS is transparent by design. It combines prior curves, log-odds-like
+updates, family weights, confidence scaling, recency decay, and explicit
+contradiction/correlation penalties. It does not claim a fully calibrated
+generative Bayesian model where the source data cannot support one.
 
-## API Surface
+Market prices are a light input and comparison point, not the target. Replay
+frames include only evidence available at that timestamp.
 
-- `GET /api/dashboard`
-- `GET /api/markets`
-- `GET /api/belief/current`
-- `GET /api/belief/history`
-- `GET /api/signals`
-- `POST /api/signals/manual`
-- `GET /api/scenarios`
-- `POST /api/scenarios/run`
-- `GET /api/replay`
-- `POST /api/admin/weights`
-- `POST /api/admin/recompute`
-- `GET /api/rules`
-- `POST /api/statements/classify`
+## Change Control
 
-## Modeling Notes
+- Product releases use Semantic Versioning; the current modular baseline is
+  `0.2.0`.
+- Public contracts are the four `src/modules/*/index.ts` files.
+- Product and contract changes are recorded under `Unreleased` in
+  [`CHANGELOG.md`](CHANGELOG.md).
+- Work lands through scoped branches and pull requests; `main` is protected by
+  the CI contract described in [`docs/versioning.md`](docs/versioning.md).
 
-- Official explicit wording outranks vibes.
-- Force-posture drawdowns support `real_end` more than `formal_announcement`.
-- Pizza index and similar proxies are intentionally low-confidence.
-- Market prices are used as a light input, not the target.
-- Resolution friction explicitly discounts cases where de-escalation happens without a qualifying statement.
-- Candidate-signal projected impact is computed by promoting one candidate at a time through the same engine path and comparing the result to the verified baseline.
-- Replay uses fixture-backed historical market series rather than repeating a single snapshot.
+## Current Limits
 
-## Tested Coverage
-
-- statement classifier behavior
-- belief engine behavior
-- route-level render sanity for dashboard, signals, timeline, scenario lab, model, replay, rules, and admin
-- API service behavior for dashboard, replay, signal explorer, classifier, and scenarios
-- deterministic replay ordering and scenario-time evaluation
-- Signal Explorer degraded/failure state behavior
-
-## Repo Tracking
-
-The repo now uses:
-
-- `PRD.md` for product intent and verified state
-- `ISSUES.md` for the current task queue
-- `WORKLOG.md` for validated task history
-
-## Fixture Scenarios
-
-- Calm de-escalation
-- Peace vibes but non-qualifying wording
-- Sudden re-escalation
-- Clean official end announcement
-
-## Fixture Limitations
-
-- Historical market overlay is fixture-backed and intended for product realism, not for claiming real trading history.
-- Prisma persistence remains scaffolded but not yet implemented beyond fixture mode.
-
-## Live Integration TODO
-
-- Replace fixture adapters with real connectors for Truth Social, official statements, market feeds, flight activity, and overflight data.
-- Persist normalized source events, signals, and belief snapshots in PostgreSQL.
-- Add Redis-backed ingestion queues and scheduled jobs.
-- Add authenticated analyst override workflows and audit logging.
+- The default product remains fixture-backed for deterministic demos.
+- Some live source adapters require external credentials and must fail closed.
+- Prisma models the persistence direction; not every product read is persistent
+  yet.
+- Historical fixtures demonstrate the method and are not evidence of live
+  trading performance.

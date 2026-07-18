@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { demoFixtures } from "../../fixtures/demo";
-import { BeliefEngine } from "@/lib/engine/belief-engine";
+import { BeliefEngine } from "@/modules/belief";
 
 describe("belief engine", () => {
   const engine = new BeliefEngine({

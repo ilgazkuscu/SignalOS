@@ -1,8 +1,8 @@
-import { buildHypothesisTree } from "@/lib/geopolitical-thesis/hypothesis-tree";
-import { computeFeatures } from "@/lib/geopolitical-thesis/feature-engine";
-import { computeScenarios } from "@/lib/geopolitical-thesis/scenario-engine";
-import { deduplicateEvidence, scoreEvidence } from "@/lib/geopolitical-thesis/evidence-ledger";
-import type { EvidenceItem, HypothesisNode, ThesisState } from "@/lib/geopolitical-thesis/types";
+import { deduplicateEvidence, scoreEvidence } from "./evidence-ledger";
+import { computeFeatures } from "./feature-engine";
+import { buildHypothesisTree } from "./hypothesis-tree";
+import { computeScenarios } from "./scenario-engine";
+import type { EvidenceItem, HypothesisNode, ThesisState } from "./types";
 
 function clamp01(value: number) {
   return Math.max(0, Math.min(1, value));

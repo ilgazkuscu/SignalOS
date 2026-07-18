@@ -3,7 +3,7 @@
 import React from "react";
 import { PlaybookSection } from "@/components/playbook-section";
 import { Panel } from "@/components/panel";
-import type { FamilyEngineOutput, MarketFamily } from "@/engine/family";
+import type { FamilyEngineOutput, MarketFamily } from "@/modules/markets";
 
 export function PlaybookTab({
   family,

@@ -11,13 +11,13 @@ import { buildOperationIndicators } from "@/lib/decision/operation-indicators";
 import { buildThesisCards } from "@/lib/decision/thesis";
 import { buildTradeDecisions } from "@/lib/decision/trade-decision";
 import { buildExpectedValueRanking } from "@/lib/edge/expected-value";
-import { BeliefEngine } from "@/lib/engine/belief-engine";
+import { BeliefEngine } from "@/modules/belief";
 import { buildExecutionRules } from "@/lib/execution/execution-rules";
 import geopoliticalFixture from "@/lib/fixtures/geopolitical-thesis/sample-news.json";
-import { generateNarrative } from "@/lib/geopolitical-thesis/narrative";
-import { linkMarkets } from "@/lib/geopolitical-thesis/market-linker";
-import { runGeopoliticalThesisScoring } from "@/lib/geopolitical-thesis/scoring";
-import { buildTradeDecisionLayer } from "@/lib/geopolitical-thesis/trade-decision-layer";
+import { generateNarrative } from "@/modules/thesis";
+import { linkMarkets } from "@/modules/thesis";
+import { runGeopoliticalThesisScoring } from "@/modules/thesis";
+import { buildTradeDecisionLayer } from "@/modules/thesis";
 import { buildHistoricalPatternAssessment } from "@/lib/historical-ops/engine";
 import { getResolvedMarketData } from "@/lib/polymarket/service";
 import { buildPortfolioSummary } from "@/lib/portfolio/portfolio";
@@ -37,7 +37,7 @@ import type {
 } from "@/lib/types/domain";
 import { compareIsoAsc, compareIsoDesc } from "@/lib/utils/sort";
 import { assessWordingRisk } from "@/lib/wording/wording-risk";
-import type { EvidenceItem } from "@/lib/geopolitical-thesis/types";
+import type { EvidenceItem } from "@/modules/thesis";
 
 const DEFAULT_NOW = new Date("2026-04-09T14:00:00-04:00");
 const SERVICE_CACHE_TTL_MS = 10_000;

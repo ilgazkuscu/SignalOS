@@ -3,7 +3,7 @@ import React from "react";
 import { describe, expect, it } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { ThesisDashboard } from "@/components/geopolitical-thesis/thesis-dashboard";
-import type { ThesisState } from "@/lib/geopolitical-thesis/types";
+import type { ThesisState } from "@/modules/thesis";
 
 describe("geopolitical thesis UI", () => {
   it("renders empty-safe dashboard state", () => {

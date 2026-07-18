@@ -1,6 +1,6 @@
 {
-  "name": "iran-ops-endgame-engine",
-  "version": "0.1.0",
+  "name": "signalos",
+  "version": "0.2.0",
   "private": true,
   "workspaces": [
     "apps/*"
@@ -16,7 +16,9 @@
     "benchmark": "tsx scripts/benchmark.ts",
     "news:poll": "tsx scripts/poll-news.ts",
     "news:loop": "tsx scripts/poll-news-loop.ts",
-    "maint:check": "npm run lint && npm run typecheck && npm test",
+    "architecture:check": "node scripts/check-module-boundaries.mjs",
+    "maint:check": "npm run architecture:check && npm run lint && npm run typecheck && npm test",
+    "validate": "npm run maint:check && npm run build",
     "db:generate": "prisma generate",
     "db:push": "prisma db push",
     "db:migrate": "prisma migrate dev",

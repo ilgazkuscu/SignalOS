@@ -1,4 +1,4 @@
-import type { ThesisState } from "@/lib/geopolitical-thesis/types";
+import type { ThesisState } from "./types";
 
 function strongestByDirection(state: ThesisState, direction: "support" | "oppose") {
   const filtered = state.evidence.filter((item) =>

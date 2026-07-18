@@ -17,8 +17,8 @@ This repository contains a SignalOS / ProjectZero product workspace and portfoli
 - `apps/web/src/app`: Next.js routes, including the main dashboard routes and presentation surfaces such as `showcase` and `signalos-v1`.
 - `apps/web/src/components`: Shared app-shell and UI components.
 - `apps/web/src/features`: Feature-level UI modules for model, replay, timeline, and related surfaces.
-- `apps/web/src/lib`: API service composition, adapters, classifiers, engine helpers, types, utilities, and data-facing logic.
-- `apps/web/src/engine`: Family-specific engine definitions.
+- `apps/web/src/modules`: Public domain modules for belief updates, market families, intelligence, and thesis scoring.
+- `apps/web/src/lib`: API service composition, adapters, classifiers, repositories, shared types, utilities, and data-facing infrastructure.
 - `prisma`: Prisma schema and seed script.
 - `tests`: Vitest unit and integration coverage.
 - `docs`: Architecture, validation, testing, and operating notes.
@@ -42,8 +42,9 @@ The app is intentionally split into four layers:
 
 1. `Adapters`
    Convert source-specific records into normalized `SourceEvent` and `Signal` objects.
-2. `Classifier + Engine`
-   Interpret language and compute latent state updates.
+2. `Domain Modules`
+   Interpret language, organize evidence, compute latent state updates, and
+   expose stable public contracts through `src/modules/*/index.ts`.
 3. `Service Layer`
    Compose fixtures, repository reads, engine runs, and API responses.
 4. `UI`
@@ -54,6 +55,20 @@ The service layer now also owns:
 - replay payload assembly with time-indexed market overlays
 - candidate-signal projected-impact computation
 - signal explorer aggregate payloads
+
+## Domain Module Boundaries
+
+The TypeScript domain has four explicit modules:
+
+1. `belief`: prior curves, confidence, weights, updates, and explanations.
+2. `markets`: market-family definitions, registry, and deterministic replay.
+3. `intelligence`: source normalization, event clustering, and briefings.
+4. `thesis`: evidence quality, hypotheses, scenarios, scoring, and decisions.
+
+Routes, features, components, services, and tests consume module `index.ts`
+files. They do not deep-import internal module files. `npm run
+architecture:check` enforces this contract and also prevents domain modules from
+depending on routes or UI code.
 
 ## Runtime Modes
 

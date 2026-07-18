@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { model2ProbabilityForBucket } from "@/app/dashboard/dashboard-tab";
-import type { FamilyBucketRow } from "@/engine/family";
+import type { FamilyBucketRow } from "@/modules/markets";
 
 const baseBucket: FamilyBucketRow = {
   id: "May 31",
