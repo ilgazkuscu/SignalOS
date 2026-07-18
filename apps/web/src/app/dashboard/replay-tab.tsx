@@ -4,7 +4,7 @@ import React from "react";
 import { AlertTriangle, CalendarDays } from "lucide-react";
 import { CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import { Panel } from "@/components/panel";
-import type { FamilyEngineOutput, FamilyReplaySeries, MarketFamily } from "@/engine/family";
+import type { FamilyEngineOutput, FamilyReplaySeries, MarketFamily } from "@/modules/markets";
 import { formatDateEt, formatDateTimeEt } from "@/lib/utils/time";
 
 type ReplaySeriesRow = {

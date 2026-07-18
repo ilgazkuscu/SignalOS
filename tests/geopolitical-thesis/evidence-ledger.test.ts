@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { addEvidence, deduplicateEvidence, scoreEvidence } from "@/lib/geopolitical-thesis/evidence-ledger";
-import type { EvidenceItem } from "@/lib/geopolitical-thesis/types";
+import { addEvidence, deduplicateEvidence, scoreEvidence } from "@/modules/thesis";
+import type { EvidenceItem } from "@/modules/thesis";
 
 const base: EvidenceItem = {
   id: "a",

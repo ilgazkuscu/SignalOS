@@ -1,4 +1,4 @@
-import type { TradeDecision, TradeDecisionInput } from "@/lib/geopolitical-thesis/types";
+import type { TradeDecision, TradeDecisionInput } from "./types";
 
 function clamp01(value: number) {
   return Math.max(0, Math.min(1, value));

@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Panel } from "@/components/panel";
-import type { EvidenceItem } from "@/lib/geopolitical-thesis/types";
+import type { EvidenceItem } from "@/modules/thesis";
 
 export function EvidenceLedgerTable({ evidence }: { evidence: EvidenceItem[] }) {
   return (

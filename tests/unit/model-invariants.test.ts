@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { demoFixtures } from "../../fixtures/demo";
-import { BeliefEngine } from "@/lib/engine/belief-engine";
-import { computeConfidence } from "@/lib/engine/confidence";
+import { BeliefEngine } from "@/modules/belief";
+import { computeConfidence } from "@/modules/belief";
 import { detectRegime } from "@/lib/regime/regime-detection";
 import { buildExpectedValueRanking } from "@/lib/edge/expected-value";
 import type { DriverContribution, Signal } from "@/lib/types/domain";

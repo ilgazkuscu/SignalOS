@@ -1,4 +1,4 @@
-import type { HypothesisNode } from "@/lib/geopolitical-thesis/types";
+import type { HypothesisNode } from "./types";
 
 export function buildHypothesisTree(): HypothesisNode[] {
   return [

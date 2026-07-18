@@ -1,11 +1,11 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
-import type { MarketFamily, FamilyBucketRow, FamilyEngineOutput, FamilyNewsRow, FamilyReplayRow, FamilySignalRow, FamilySummary } from "@/engine/family";
-import { registeredFamilies } from "@/engine/families";
-import { computeEngineReplaySeries, computeReplaySeries } from "@/engine/replay-series";
+import type { MarketFamily, FamilyBucketRow, FamilyEngineOutput, FamilyNewsRow, FamilyReplayRow, FamilySignalRow, FamilySummary } from "@/modules/markets";
+import { registeredFamilies } from "@/modules/markets";
+import { computeEngineReplaySeries, computeReplaySeries } from "@/modules/markets";
 import { deriveHormuzModelByDate } from "@/lib/hormuz";
-import { sourceEventUrl } from "@/lib/intelligence/source-url";
+import { sourceEventUrl } from "@/modules/intelligence";
 import type { DashboardPayload, ReplayPayload, SignalsExplorerPayload, TimelinePayload } from "@/lib/types/domain";
 import type { EventMarketHistoryPoint, PolymarketEventMarket } from "@/lib/polymarket/fetcher";
 

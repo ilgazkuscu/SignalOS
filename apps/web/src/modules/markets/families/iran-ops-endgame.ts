@@ -1,4 +1,4 @@
-import type { MarketFamily } from "@/engine/family";
+import type { MarketFamily } from "../types";
 
 export const iranOpsEndgameFamily: MarketFamily = {
   id: "iran-ops-endgame",

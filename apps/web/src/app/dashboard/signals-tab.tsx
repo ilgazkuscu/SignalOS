@@ -3,7 +3,7 @@
 import React from "react";
 import { Panel } from "@/components/panel";
 import { SignalRow } from "@/components/signal-row";
-import type { FamilyEngineOutput, MarketFamily } from "@/engine/family";
+import type { FamilyEngineOutput, MarketFamily } from "@/modules/markets";
 import { friendlyCopy, friendlySignalLabel } from "@/lib/friendly-signal-copy";
 
 export function SignalsTab({

@@ -20,7 +20,7 @@ describe("signal explorer", () => {
     await waitFor(() => {
       expect(screen.getByText(/Evidence feed degraded/i)).toBeTruthy();
     });
-    expect(screen.getByText(/Showing the last saved data/i)).toBeTruthy();
+    expect(screen.getByText(/showing the last saved data/i)).toBeTruthy();
   });
 
   it("renders candidate projected impact details", async () => {

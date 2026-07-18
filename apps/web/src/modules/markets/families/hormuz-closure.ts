@@ -1,4 +1,4 @@
-import type { MarketFamily } from "@/engine/family";
+import type { MarketFamily } from "../types";
 
 export const hormuzClosureFamily: MarketFamily = {
   id: "hormuz-closure",

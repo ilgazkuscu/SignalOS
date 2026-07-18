@@ -2,8 +2,8 @@ import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 import { FamilyHeaderStrip } from "@/components/family-header-strip";
-import type { FamilyEngineOutput, MarketFamily } from "@/engine/family";
-import { hormuzClosureFamily } from "@/engine/families/hormuz-closure";
+import type { FamilyEngineOutput, MarketFamily } from "@/modules/markets";
+import { hormuzClosureFamily } from "@/modules/markets";
 
 const baseOutput: FamilyEngineOutput = {
   familyId: "hormuz-closure",

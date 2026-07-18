@@ -6,7 +6,7 @@ import { ScenarioProbabilityPanel } from "@/components/geopolitical-thesis/scena
 import { EvidenceLedgerTable } from "@/components/geopolitical-thesis/evidence-ledger-table";
 import { MarketMapPanel } from "@/components/geopolitical-thesis/market-map-panel";
 import { Panel } from "@/components/panel";
-import type { MarketLink, ThesisState, TradeDecision } from "@/lib/geopolitical-thesis/types";
+import type { MarketLink, ThesisState, TradeDecision } from "@/modules/thesis";
 
 export function ThesisDashboard({
   state,

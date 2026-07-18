@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
-import { computeFeatures } from "@/lib/geopolitical-thesis/feature-engine";
+import { computeFeatures } from "@/modules/thesis";
 import fixture from "../../fixtures/geopolitical-thesis/sample-news.json";
-import type { EvidenceItem } from "@/lib/geopolitical-thesis/types";
+import type { EvidenceItem } from "@/modules/thesis";
 
 describe("feature engine", () => {
   it("keeps all features bounded", () => {

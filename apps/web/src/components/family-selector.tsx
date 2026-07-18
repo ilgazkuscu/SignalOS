@@ -3,7 +3,7 @@
 import React from "react";
 import { Check, ChevronDown, Search } from "lucide-react";
 import clsx from "clsx";
-import type { FamilySummary, MarketFamily } from "@/engine/family";
+import type { FamilySummary, MarketFamily } from "@/modules/markets";
 
 function signedGap(gap: number) {
   const points = Math.round(gap * 100);

@@ -13,7 +13,7 @@ import ModelPage from "@/app/(routes)/model/page";
 import ReplayPage from "@/app/(routes)/replay/page";
 import RulesPage from "@/app/(routes)/rules/page";
 import AdminPage from "@/app/(routes)/admin/page";
-import { getDefaultFamilyId } from "@/engine/families";
+import { getDefaultFamilyId } from "@/modules/markets";
 
 const navigationMocks = vi.hoisted(() => ({
   redirect: vi.fn((url: string) => {
@@ -54,6 +54,7 @@ describe("route-level page sanity", () => {
 
   it("renders the timeline page", async () => {
     const html = await renderPage(TimelinePage);
+    expect(html).toContain("Executive Brief");
     expect(html).toContain("Full Timeline");
   });
 
@@ -85,6 +86,7 @@ describe("route-level page sanity", () => {
     const html = await renderPage(ModelPage);
     expect(html).toContain("Core Idea");
     expect(html).toContain("What Happened");
+    expect(html).toContain("Prediction Breakdown");
   });
 
   it("renders the rules page", async () => {
@@ -95,5 +97,6 @@ describe("route-level page sanity", () => {
   it("renders the admin page", async () => {
     const html = await renderPage(AdminPage);
     expect(html).toContain("Alert Sensitivity");
+    expect(html).toContain("Demo Readiness");
   });
 });

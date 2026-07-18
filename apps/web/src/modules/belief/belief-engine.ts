@@ -10,10 +10,10 @@ import type {
   Signal,
   WeightProfileKey,
 } from "@/lib/types/domain";
-import { computeConfidence } from "@/lib/engine/confidence";
-import { createDriverNarrative, determineAffectedLatents, splitDrivers } from "@/lib/engine/explanations";
-import { getWeightProfile } from "@/lib/engine/profiles";
-import { buildPriorCurve } from "@/lib/engine/prior";
+import { computeConfidence } from "./confidence";
+import { createDriverNarrative, determineAffectedLatents, splitDrivers } from "./explanations";
+import { getWeightProfile } from "./profiles";
+import { buildPriorCurve } from "./prior";
 import { decayFactor } from "@/lib/utils/time";
 import { clamp, round } from "@/lib/utils/math";
 import { averageProbability, ensureProbability } from "@/lib/utils/probability";

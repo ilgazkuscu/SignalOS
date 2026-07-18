@@ -5,7 +5,7 @@ import type {
   MarketLink as GeopoliticalMarketLink,
   Scenario as GeopoliticalScenario,
   TradeDecision as GeopoliticalTradeDecision,
-} from "@/lib/geopolitical-thesis/types";
+} from "@/modules/thesis";
 
 export type MarketId =
   | "apr-15"

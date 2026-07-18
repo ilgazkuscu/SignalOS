@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import type { FamilyReplaySeries } from "@/engine/family";
+import type { FamilyReplaySeries } from "@/modules/markets";
 import { buildReplayRowsForBucket } from "@/app/dashboard/replay-tab";
 
 const replaySeries: FamilyReplaySeries = {

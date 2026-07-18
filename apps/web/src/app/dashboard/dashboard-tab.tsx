@@ -4,7 +4,7 @@ import React from "react";
 import { CartesianGrid, ComposedChart, Legend, Line, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import { FamilyHeaderStrip } from "@/components/family-header-strip";
 import { Panel } from "@/components/panel";
-import type { FamilyEngineOutput, MarketFamily } from "@/engine/family";
+import type { FamilyEngineOutput, MarketFamily } from "@/modules/markets";
 import { formatDateTimeEt, relativeTimeFrom } from "@/lib/utils/time";
 
 interface Model2Payload {

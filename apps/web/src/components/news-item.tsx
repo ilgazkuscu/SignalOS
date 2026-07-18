@@ -1,6 +1,6 @@
 import React from "react";
 import { ExternalLink } from "lucide-react";
-import type { FamilyNewsRow } from "@/engine/family";
+import type { FamilyNewsRow } from "@/modules/markets";
 import { SourceBadge } from "@/components/source-badge";
 import { formatDateTimeEt } from "@/lib/utils/time";
 

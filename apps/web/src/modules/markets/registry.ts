@@ -1,5 +1,5 @@
-import { hormuzClosureFamily } from "@/engine/families/hormuz-closure";
-import { iranOpsEndgameFamily } from "@/engine/families/iran-ops-endgame";
+import { hormuzClosureFamily } from "./families/hormuz-closure";
+import { iranOpsEndgameFamily } from "./families/iran-ops-endgame";
 
 export const registeredFamilies = [iranOpsEndgameFamily, hormuzClosureFamily];
 

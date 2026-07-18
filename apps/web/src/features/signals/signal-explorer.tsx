@@ -6,8 +6,8 @@ import { AlertTriangle, ChevronDown, ChevronUp, ExternalLink, RefreshCw, Search,
 import { Panel } from "@/components/panel";
 import { HelpTooltip } from "@/components/tooltip";
 import type { CandidateImpact, SignalsExplorerPayload, Signal, SignalDirection, SignalStatus, SourceEvent } from "@/lib/types/domain";
-import { determineAffectedLatents } from "@/lib/engine/explanations";
-import { sourceEventUrl } from "@/lib/intelligence/source-url";
+import { determineAffectedLatents } from "@/modules/belief";
+import { sourceEventUrl } from "@/modules/intelligence";
 import { formatDateTimeEt } from "@/lib/utils/time";
 
 type SortKey = "newest" | "confidence" | "impact";

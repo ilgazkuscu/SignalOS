@@ -48,6 +48,7 @@ assignees: ""
 
 # Validation Commands
 
+- [ ] `npm run architecture:check`
 - [ ] `npm run lint`
 - [ ] `npm run typecheck`
 - [ ] `npm test`
@@ -79,4 +80,3 @@ List files, directories, or responsibilities this agent owns. Note files that sh
 - [ ] Validation results posted.
 - [ ] Known limitations documented.
 - [ ] Rollback notes included.
-

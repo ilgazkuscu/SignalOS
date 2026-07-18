@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Panel } from "@/components/panel";
-import type { HypothesisNode } from "@/lib/geopolitical-thesis/types";
+import type { HypothesisNode } from "@/modules/thesis";
 
 export function HypothesisCard({ hypothesis }: { hypothesis: HypothesisNode }) {
   return (

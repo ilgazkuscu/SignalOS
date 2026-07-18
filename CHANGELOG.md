@@ -1,5 +1,19 @@
 # Changelog
 
+All notable changes follow [Semantic Versioning](https://semver.org/). See
+[`docs/versioning.md`](docs/versioning.md) for the release workflow.
+
+## Unreleased
+
+### Changed
+
+- Reorganized the TypeScript domain into explicit `belief`, `markets`,
+  `intelligence`, and `thesis` modules with stable public entry points.
+- Added automated module-boundary validation and a single CI quality gate.
+- Renamed the npm workspace from its Iran-operations prototype name to
+  SignalOS, aligned the Python intelligence service package, and established
+  `0.2.0` as the modular baseline.
+
 ## 2026-06-01
 
 - Added a default `How To` dashboard tab that explains the Hormuz Strait prediction-market bet in plain English for portfolio visitors, including the model/market/gap reading, signal sources, one-minute tour, and direct links to the dashboard, signals, news, replay, and original Polymarket market.

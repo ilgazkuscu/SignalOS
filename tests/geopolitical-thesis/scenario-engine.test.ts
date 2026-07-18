@@ -1,10 +1,10 @@
 import { describe, expect, it } from "vitest";
-import { computeFeatures } from "@/lib/geopolitical-thesis/feature-engine";
-import { computeScenarios } from "@/lib/geopolitical-thesis/scenario-engine";
-import { runGeopoliticalThesisScoring } from "@/lib/geopolitical-thesis/scoring";
-import { generateNarrative } from "@/lib/geopolitical-thesis/narrative";
+import { computeFeatures } from "@/modules/thesis";
+import { computeScenarios } from "@/modules/thesis";
+import { runGeopoliticalThesisScoring } from "@/modules/thesis";
+import { generateNarrative } from "@/modules/thesis";
 import fixture from "../../fixtures/geopolitical-thesis/sample-news.json";
-import type { EvidenceItem } from "@/lib/geopolitical-thesis/types";
+import type { EvidenceItem } from "@/modules/thesis";
 
 describe("scenario engine", () => {
   it("normalizes scenario probabilities", () => {

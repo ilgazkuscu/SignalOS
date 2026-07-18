@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Panel } from "@/components/panel";
-import type { Scenario } from "@/lib/geopolitical-thesis/types";
+import type { Scenario } from "@/modules/thesis";
 
 export function ScenarioProbabilityPanel({ scenarios }: { scenarios: Scenario[] }) {
   return (

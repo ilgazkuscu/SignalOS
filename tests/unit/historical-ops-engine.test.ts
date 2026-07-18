@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { demoFixtures } from "../../fixtures/demo";
 import { buildOperationIndicators } from "@/lib/decision/operation-indicators";
 import { buildHistoricalPatternAssessment } from "@/lib/historical-ops/engine";
-import { BeliefEngine } from "@/lib/engine/belief-engine";
+import { BeliefEngine } from "@/modules/belief";
 
 describe("historical pattern engine", () => {
   const now = new Date("2026-04-09T14:00:00-04:00");

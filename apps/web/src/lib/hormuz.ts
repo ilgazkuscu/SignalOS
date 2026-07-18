@@ -1,4 +1,4 @@
-import { hormuzClosureFamily } from "@/engine/families/hormuz-closure";
+import { hormuzClosureFamily } from "@/modules/markets";
 import type { PolymarketEventMarket } from "@/lib/polymarket/fetcher";
 
 export const HORMUZ_EVENT_SLUG = "trump-announces-us-blockade-of-hormuz-lifted-by";

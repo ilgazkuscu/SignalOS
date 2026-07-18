@@ -3,8 +3,8 @@
 import React from "react";
 import Image from "next/image";
 import { Panel } from "@/components/panel";
-import type { FamilyEngineOutput, MarketFamily } from "@/engine/family";
-import { sourceDomain } from "@/lib/intelligence/source-url";
+import type { FamilyEngineOutput, MarketFamily } from "@/modules/markets";
+import { sourceDomain } from "@/modules/intelligence";
 
 interface SignalOsModelMeta {
   hmm: {

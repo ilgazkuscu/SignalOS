@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { getTimeline } from "@/lib/api/service";
-import { buildEliteBriefMarkdown } from "@/lib/intelligence/briefing";
+import { buildEliteBriefMarkdown } from "@/modules/intelligence";
 
 export const dynamic = "force-dynamic";
 

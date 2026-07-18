@@ -1,5 +1,5 @@
 import { appEnv } from "@/lib/config/env";
-import { buildNarrativeTrends, buildNewsSummary, clusterSourceEvents } from "@/lib/intelligence/event-clustering";
+import { buildNarrativeTrends, buildNewsSummary, clusterSourceEvents } from "@/modules/intelligence";
 import { conditionalFetch } from "@/lib/news/fetch-client";
 import { refreshModelFromNewsUpdates } from "@/lib/news/model-refresh";
 import { getNewsSourceRegistry, type NewsSourceConfig } from "@/lib/news/source-registry";

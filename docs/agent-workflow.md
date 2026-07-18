@@ -2,6 +2,10 @@
 
 Use GitHub issues and pull requests as the handoff system between Claude Code, Codex, and Gemini. One branch should be merged at a time, after the relevant build, lint, typecheck, and tests pass.
 
+All agents must import domain behavior through `apps/web/src/modules/*/index.ts`
+and run `npm run architecture:check` before handoff. A new public export is a
+contract change and belongs in `CHANGELOG.md`.
+
 ## 1. Create The GitHub Issue
 
 Every task starts as a GitHub issue with:
@@ -69,4 +73,3 @@ Each PR must include:
 - Reviewer checklist
 
 After merge, close the issue or open follow-up issues for deferred work.
-
