@@ -26,7 +26,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const { fixtureMode } = useFixtureMode();
   const pathname = usePathname();
 
-  if (pathname === "/" || pathname === "/snapshots" || pathname.startsWith("/dashboard")) {
+  if (pathname === "/" || pathname === "/snapshots" || pathname === "/showcase" || pathname.startsWith("/dashboard")) {
     return (
       <div className="min-h-screen bg-[var(--color-bg)] text-[var(--color-text)]">
         <main>{children}</main>

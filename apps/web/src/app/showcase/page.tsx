@@ -108,22 +108,23 @@ export default function ShowcasePage() {
   }, [activeSlide, goToSlide]);
 
   React.useEffect(() => {
-    if (activeSlide !== 1 || hasAutoRunChart.current) return;
+    if (activeSlide !== 1 || hasAutoRunChart.current || reducedMotion) return;
     hasAutoRunChart.current = true;
     setCurrentStep(0);
     setRunning(true);
-  }, [activeSlide]);
+  }, [activeSlide, reducedMotion]);
 
   const setSlideRef = (index: number) => (node: HTMLElement | null) => {
     slideRefs.current[index] = node;
   };
 
   return (
-    <main className="showcase-deck min-h-screen snap-y snap-mandatory overflow-x-hidden bg-[#020304] font-sans text-[#F3F4F0] selection:bg-[#DDFDFA] selection:text-black">
+    <main className="showcase-deck min-h-screen min-h-dvh snap-y snap-mandatory overflow-x-hidden overscroll-y-contain bg-[#020304] font-sans text-[#F3F4F0] selection:bg-[#DDFDFA] selection:text-black">
       <style jsx global>{`
         html {
           scroll-snap-type: y mandatory;
           background: #020304;
+          overscroll-behavior-y: contain;
         }
 
         @media (prefers-reduced-motion: no-preference) {
@@ -142,7 +143,7 @@ export default function ShowcasePage() {
           }
         }
       `}</style>
-      <Atmosphere activeSlide={activeSlide} />
+      <Atmosphere activeSlide={activeSlide} reducedMotion={reducedMotion} />
       <NarrativeRail activeSlide={activeSlide} />
       <StickyBar item={current} step={currentStep} />
       <HoverNav />
@@ -268,7 +269,7 @@ const Slide = React.forwardRef<HTMLElement, { index: number; activeSlide: number
       ref={ref}
       data-slide-index={index}
       aria-labelledby={titleId}
-      className="relative flex min-h-screen snap-start flex-col justify-center px-5 pb-16 pt-20 sm:px-8 lg:px-12"
+      className="relative flex min-h-screen min-h-dvh snap-start flex-col justify-center px-5 pb-16 pt-20 sm:px-8 lg:px-12"
     >
       <div
         className="showcase-slide-content relative z-10 mx-auto w-full max-w-[1440px] transition duration-700 ease-out"
@@ -292,10 +293,10 @@ const Slide = React.forwardRef<HTMLElement, { index: number; activeSlide: number
 );
 Slide.displayName = "Slide";
 
-function Atmosphere({ activeSlide }: { activeSlide: number }) {
+function Atmosphere({ activeSlide, reducedMotion }: { activeSlide: number; reducedMotion: boolean }) {
   return (
     <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
-      <div className="absolute inset-0 transition-transform duration-700 ease-out" style={{ transform: `translate3d(${-activeSlide * 1.5}vw, ${activeSlide * 0.8}vh, 0) scale(${1 + activeSlide * 0.015})` }}>
+      <div className="absolute inset-0 transition-transform duration-700 ease-out" style={reducedMotion ? undefined : { transform: `translate3d(${-activeSlide * 1.5}vw, ${activeSlide * 0.8}vh, 0) scale(${1 + activeSlide * 0.015})` }}>
         <div className="absolute inset-x-[-18vw] top-[-22vh] h-[66vh] rotate-[-8deg] bg-[linear-gradient(90deg,transparent,rgba(30,231,210,0.13),rgba(220,165,74,0.08),transparent)] blur-3xl" />
         <div className="absolute inset-x-[-20vw] bottom-[-18vh] h-[58vh] rotate-[10deg] bg-[linear-gradient(90deg,transparent,rgba(221,253,250,0.08),rgba(135,92,255,0.09),transparent)] blur-3xl" />
       </div>

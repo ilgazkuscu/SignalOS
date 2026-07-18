@@ -13,6 +13,7 @@ import ModelPage from "@/app/(routes)/model/page";
 import ReplayPage from "@/app/(routes)/replay/page";
 import RulesPage from "@/app/(routes)/rules/page";
 import AdminPage from "@/app/(routes)/admin/page";
+import { getDefaultFamilyId } from "@/modules/markets";
 
 const navigationMocks = vi.hoisted(() => ({
   redirect: vi.fn((url: string) => {
@@ -34,22 +35,15 @@ async function renderPage(page: () => Promise<React.ReactElement> | React.ReactE
 
 describe("route-level page sanity", () => {
   it("sends the public root directly into the usable dashboard", () => {
-    vi.useFakeTimers();
-    vi.setSystemTime(new Date("2026-06-01T12:00:00Z"));
-    try {
-      expect(() => RootPage()).toThrow(/NEXT_REDIRECT:\/dashboard\?family=hormuz-closure&tab=howto/);
-      expect(navigationMocks.redirect).toHaveBeenCalledWith(
-        "/dashboard?family=hormuz-closure&tab=howto",
-      );
-    } finally {
-      vi.useRealTimers();
-    }
+    const expectedUrl = `/dashboard?family=${getDefaultFamilyId()}&tab=howto`;
+    expect(() => RootPage()).toThrow(`NEXT_REDIRECT:${expectedUrl}`);
+    expect(navigationMocks.redirect).toHaveBeenCalledWith(expectedUrl);
   });
 
   it("renders the dashboard page", async () => {
     const html = await renderPage(DashboardPage);
     expect(html).toContain("SignalOS");
-    expect(html).toContain("SignalOS reads news, checks what matters");
+    expect(html).toContain("SignalOS reads news, checks what matters, and shows how the prediction changed.");
   });
 
   it("renders the signals page", async () => {
@@ -91,6 +85,7 @@ describe("route-level page sanity", () => {
   it("renders the model page", async () => {
     const html = await renderPage(ModelPage);
     expect(html).toContain("Core Idea");
+    expect(html).toContain("What Happened");
     expect(html).toContain("Prediction Breakdown");
   });
 
