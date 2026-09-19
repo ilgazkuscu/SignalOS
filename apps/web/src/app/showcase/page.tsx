@@ -3,11 +3,12 @@
 import React from "react";
 import { ArrowDown, BarChart3, Braces, CircleDot, ExternalLink, Focus, Menu, Pause, Play, Radar, RotateCcw, Route, ScanLine, StepForward, X, Zap } from "lucide-react";
 import { showcaseNews, type ShowcaseNewsItem } from "./data";
+import { Architecture } from "./architecture";
 
 const chartWidth = 1180;
 const chartHeight = 560;
 const padding = { top: 54, right: 42, bottom: 78, left: 66 };
-const slideCount = 7;
+const slideCount = 8;
 const betTitle = "Trump announces end of U.S. military operations against Iran by June 30";
 const focusRingClass = "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#DDFDFA]";
 
@@ -65,23 +66,49 @@ export default function ShowcasePage() {
   }, [currentStep, running]);
 
   React.useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (!visible) return;
-        const index = Number((visible.target as HTMLElement).dataset.slideIndex ?? 0);
-        setActiveSlide(index);
-      },
-      { root: null, threshold: [0.46, 0.66] },
-    );
+    let frame: number | null = null;
+    const updateActiveSlide = () => {
+      frame = null;
+      const readingLine = window.innerHeight * 0.35;
+      const index = slideRefs.current.findIndex((node) => {
+        if (!node) return false;
+        const rect = node.getBoundingClientRect();
+        return rect.top <= readingLine && rect.bottom > readingLine;
+      });
+      if (index !== -1) setActiveSlide(index);
+    };
+    const scheduleUpdate = () => {
+      if (frame === null) frame = window.requestAnimationFrame(updateActiveSlide);
+    };
 
-    slideRefs.current.forEach((node) => {
-      if (node) observer.observe(node);
-    });
+    scheduleUpdate();
+    window.addEventListener("scroll", scheduleUpdate, { passive: true });
+    window.addEventListener("resize", scheduleUpdate);
 
-    return () => observer.disconnect();
+    return () => {
+      if (frame !== null) window.cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", scheduleUpdate);
+      window.removeEventListener("resize", scheduleUpdate);
+    };
+  }, []);
+
+  React.useEffect(() => {
+    let disposed = false;
+    let frame: number | null = null;
+    const openArchitecture = () => {
+      if (window.location.hash !== "#architecture") return;
+      if (frame !== null) window.cancelAnimationFrame(frame);
+      frame = window.requestAnimationFrame(() => {
+        if (!disposed) slideRefs.current[4]?.scrollIntoView({ behavior: "instant", block: "start" });
+      });
+    };
+    void document.fonts.ready.then(() => { if (!disposed) openArchitecture(); });
+    window.addEventListener("hashchange", openArchitecture);
+    return () => {
+      disposed = true;
+      if (frame !== null) window.cancelAnimationFrame(frame);
+      window.removeEventListener("hashchange", openArchitecture);
+    };
   }, []);
 
   React.useEffect(() => {
@@ -163,7 +190,7 @@ export default function ShowcasePage() {
                 <Focus size={17} />
                 Follow the Signal
               </button>
-              <button type="button" onClick={() => goToSlide(2)} className={`inline-flex min-h-12 items-center gap-2 border border-white/18 bg-white/[0.04] px-5 text-sm font-semibold uppercase tracking-[0.16em] text-[#F3F4F0] transition hover:border-white/50 hover:bg-white/[0.08] ${focusRingClass}`}>
+              <button type="button" onClick={() => goToSlide(4)} className={`inline-flex min-h-12 items-center gap-2 border border-white/18 bg-white/[0.04] px-5 text-sm font-semibold uppercase tracking-[0.16em] text-[#F3F4F0] transition hover:border-white/50 hover:bg-white/[0.08] ${focusRingClass}`}>
                 <ArrowDown size={17} />
                 Reveal the System
               </button>
@@ -209,7 +236,11 @@ export default function ShowcasePage() {
         </div>
       </Slide>
 
-      <Slide ref={setSlideRef(4)} index={4} activeSlide={activeSlide} reducedMotion={reducedMotion} eyebrow="04 / proof" title={`${showcaseNews.length} reads become ${changedCount} material changes. The trail stays inspectable.`}>
+      <Slide ref={setSlideRef(4)} id="architecture" index={4} activeSlide={activeSlide} reducedMotion={reducedMotion} eyebrow="04 / architecture" title="From public evidence to an inspectable forecast.">
+        <Architecture />
+      </Slide>
+
+      <Slide ref={setSlideRef(5)} index={5} activeSlide={activeSlide} reducedMotion={reducedMotion} eyebrow="05 / proof" title={`${showcaseNews.length} reads become ${changedCount} material changes. The trail stays inspectable.`}>
         <div className="grid max-h-[68vh] gap-3 overflow-y-auto pr-1 lg:grid-cols-2">
           {showcaseNews.map((item, index) => (
             <NewsRow key={item.id} item={item} index={index} currentStep={currentStep} onSelect={setCurrentStep} />
@@ -218,7 +249,7 @@ export default function ShowcasePage() {
         <StoryBridge label="What this resolves" text="The audience is no longer asked to trust a model output. They can audit the path." />
       </Slide>
 
-      <Slide ref={setSlideRef(5)} index={5} activeSlide={activeSlide} reducedMotion={reducedMotion} eyebrow="05 / credibility" title="The persuasive point: this is a briefing layer, not a black box.">
+      <Slide ref={setSlideRef(6)} index={6} activeSlide={activeSlide} reducedMotion={reducedMotion} eyebrow="06 / credibility" title="The persuasive point: this is a briefing layer, not a black box.">
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           <MethodCard title="Source-weighted analysis" body="Updates are framed as evidence, not vibes. Each event has a visible reason." icon={<ScanLine size={22} />} />
           <MethodCard title="Signal evolution" body="The graph makes temporal change the main object of inspection." icon={<Route size={22} />} />
@@ -233,7 +264,7 @@ export default function ShowcasePage() {
         </div>
       </Slide>
 
-      <Slide ref={setSlideRef(6)} index={6} activeSlide={activeSlide} reducedMotion={reducedMotion} eyebrow="06 / recommendation" title="Recommendation: fund the product that explains the number.">
+      <Slide ref={setSlideRef(7)} index={7} activeSlide={activeSlide} reducedMotion={reducedMotion} eyebrow="07 / recommendation" title="Recommendation: fund the product that explains the number.">
         <div className="grid gap-5 lg:grid-cols-[1fr_0.72fr]">
           <div className="final-panel p-7 text-black">
             <div className="text-sm font-semibold uppercase tracking-[0.2em] text-black/60">Final recommendation</div>
@@ -257,8 +288,8 @@ export default function ShowcasePage() {
   );
 }
 
-const Slide = React.forwardRef<HTMLElement, { index: number; activeSlide: number; reducedMotion: boolean; eyebrow: string; title: string; kicker?: string; children: React.ReactNode }>(
-  ({ index, activeSlide, reducedMotion, eyebrow, title, kicker, children }, ref) => {
+const Slide = React.forwardRef<HTMLElement, { id?: string; index: number; activeSlide: number; reducedMotion: boolean; eyebrow: string; title: string; kicker?: string; children: React.ReactNode }>(
+  ({ id, index, activeSlide, reducedMotion, eyebrow, title, kicker, children }, ref) => {
     const distance = index - activeSlide;
     const clampedDistance = Math.max(-1, Math.min(1, distance));
     const titleId = `showcase-slide-${index + 1}-title`;
@@ -267,9 +298,10 @@ const Slide = React.forwardRef<HTMLElement, { index: number; activeSlide: number
     return (
     <section
       ref={ref}
+      id={id}
       data-slide-index={index}
       aria-labelledby={titleId}
-      className="relative flex min-h-screen min-h-dvh snap-start flex-col justify-center px-5 pb-16 pt-20 sm:px-8 lg:px-12"
+      className={`relative flex min-h-screen min-h-dvh snap-start flex-col justify-center px-5 pb-16 pt-20 sm:px-8 lg:px-12 ${id === "architecture" ? "xl:pr-40" : ""}`}
     >
       <div
         className="showcase-slide-content relative z-10 mx-auto w-full max-w-[1440px] transition duration-700 ease-out"
@@ -307,7 +339,7 @@ function Atmosphere({ activeSlide, reducedMotion }: { activeSlide: number; reduc
 }
 
 function NarrativeRail({ activeSlide }: { activeSlide: number }) {
-  const labels = ["Hook", "Move", "Cause", "Update", "Proof", "Trust", "Act"];
+  const labels = ["Hook", "Move", "Cause", "Update", "System", "Proof", "Trust", "Act"];
   return (
     <div aria-hidden="true" className="pointer-events-none fixed right-6 top-1/2 z-30 hidden -translate-y-1/2 xl:block">
       <div className="relative h-[64vh] w-28">
