@@ -5,6 +5,14 @@ All notable changes follow [Semantic Versioning](https://semver.org/). See
 
 ## Unreleased
 
+### Added
+
+- Added a responsive architecture slide to `/showcase` with source-verified
+  implementation and proposed production views, explicit persistence/demo
+  boundaries, and direct access at `/showcase#architecture`.
+- Documented a September 2026 architecture review and a minimal production path
+  with durable jobs, versioned evidence, and outcome-based evaluation.
+
 ### Changed
 
 - Reorganized the TypeScript domain into explicit `belief`, `markets`,
